@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FaqHeads extends Migration
+class HomePage extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class FaqHeads extends Migration
      */
     public function up()
     {
-        Schema::create('faq_heads', function (Blueprint $table) {
+        Schema::create('homePage', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->integer('parent_id')->nullable();
-            $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
+            $table->longText('body');
+            $table->integer('user_id');
+            $table->string('mataTitle', 255)->nullable();
+            $table->text('mataDescription')->nullable();
+            $table->string('mataTags', 255)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +32,6 @@ class FaqHeads extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq_heads');
+        Schema::dropIfExists('homePage');
     }
 }

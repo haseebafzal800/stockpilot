@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $data['pageTitle'] = 'Dashboard';
+        $data['dashboardActive'] = 'active';
         return view('admin.index', $data);
     }
 }

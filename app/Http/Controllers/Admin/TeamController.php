@@ -52,11 +52,17 @@ class TeamController extends Controller
                 ->make(true);
             }
         $data['pageTitle'] = 'Team';
+        $data['teamListActive'] = 'active';
+        $data['teamOpening'] = 'menu-is-opening';  
+        $data['teamOpend'] = 'menu-open';
         // dd($data);
         return view('admin.team.index', $data);
     }
     function create(){
         $data['pageTitle'] = 'Create Team Member';
+        $data['teamCreateActive'] = 'active';
+        $data['teamOpening'] = 'menu-is-opening';  
+        $data['teamOpend'] = 'menu-open';
         return view('admin.team.form', $data);
     }
     public function store(TeamRequest $request)
@@ -86,6 +92,9 @@ class TeamController extends Controller
     public function edit($id)
     {
         $data['pageTitle'] = 'Edit team member';
+        $data['teamListActive'] = 'active';
+        $data['teamOpening'] = 'menu-is-opening';  
+        $data['teamOpend'] = 'menu-open';
         $data['item'] = TeamModel::find($id);
         // $data['tags'] = TagsModel::get();
         

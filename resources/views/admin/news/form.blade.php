@@ -80,8 +80,10 @@
                   
                   <label class="img-hldr">
                         <div class="row">
-                            <img id="image-container1" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" />
+                          <img id="image-container1" class="img img-fluid" />
+                          <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" /><br>
+                        </div>
+                        <div class="row">
                             <div class="col-4"></div>
                             <div class="col-4">
                                 <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>

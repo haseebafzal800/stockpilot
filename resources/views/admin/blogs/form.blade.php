@@ -51,7 +51,12 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
-
+                  <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" {{ old('is_featured')?'checked':'' }} name="is_featured" class="custom-control-input" id="customSwitch1">
+                      <label class="custom-control-label" for="customSwitch1">Is Featured</label>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <label for="mataTitle">Mata Title</label>
                     <input type="text" name="mataTitle"  value="{{ old('mataTitle') }}" class="form-control" id="mataTitle" placeholder="Enter Mata Title">

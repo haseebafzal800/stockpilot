@@ -53,15 +53,22 @@ class BlogController extends Controller
                 ->make(true);
             }
         $data['pageTitle'] = 'Blogs';
+        $data['blogListActive'] = 'active';
+        $data['blogOpening'] = 'menu-is-opening';  
+        $data['blogOpend'] = 'menu-open';
         return view('admin.blogs.index', $data);
     }
     function create(){
         $data['pageTitle'] = 'Create Blog';
+        $data['blogCreateActive'] = 'active';
+        $data['blogOpening'] = 'menu-is-opening';  
+        $data['blogOpend'] = 'menu-open';
         $data['tags'] = TagsModel::get();
         return view('admin.blogs.form', $data);
     }
     public function store(BlogRequest $request)
     {
+        // dd($request->all());
         $request['slug'] = Str::slug($request->title);
         $request['user_id'] = auth()->user()->id;
         $post = BlogsModel::create($request->all());
@@ -87,6 +94,9 @@ class BlogController extends Controller
     public function edit($id)
     {
         $data['pageTitle'] = 'Edit Blog';
+        $data['blogListActive'] = 'active';
+        $data['blogOpening'] = 'menu-is-opening';  
+        $data['blogOpend'] = 'menu-open';
         $data['item'] = BlogsModel::find($id);
         $data['tags'] = TagsModel::get();
         

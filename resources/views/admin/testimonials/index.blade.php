@@ -25,6 +25,7 @@
                         <th>Rating</th>
                         <th>Client</th>
                         <th>Image</th>
+                        <th>company Logo</th>
                         <th>Date</th>
                         <th width="100px">Action</th>
                     </tr>
@@ -39,6 +40,7 @@
                         <th>Rating</th>
                         <th>Client</th>
                         <th>Image</th>
+                        <th>company Logo</th>
                         <th>Date</th>
                         <th width="100px">Action</th>
                     </tr>
@@ -72,10 +74,11 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'subject', name: 'subject'},
-                {data: 'body', name: 'body'},
+                {data: 'body', width:'15%', name: 'body'},
                 {data: 'star_rating', name: 'star_rating'},
                 {data: 'client', name: 'client'},
                 {data: 'thumbnail', name: 'thumbnail'},
+                {data: 'company_logo', name: 'company_logo'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: true},
             ]

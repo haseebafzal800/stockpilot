@@ -14,49 +14,17 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" method="post" action="{{@url('/admin/blog/update')}}" enctype="multipart/form-data">
+              <form id="quickForm" method="post" action="{{ route('update-support-settings')}}" enctype="multipart/form-data">
                 <div class="card-body">
                 @csrf
                 <input type="hidden" name="id" value="{{ $item->id }}">
+                  
                   <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" value="{{ $item->title }}" class="form-control" id="title" placeholder="Enter Title">
-                    @error('title')
+                    <label for="summernote">Body</label>
+                    <textarea name="body" id="summernote">{{ $item->body }}</textarea>
+                    @error('body')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
-                  </div>
-
-                  <div class="form-group">
-                    <label for="title">Tags</label>
-                    <select name="tag_id" class="form-control" id="tag_id">
-                      <option value="" disabled>Select Tag</option>
-                      @foreach($tags as $tag)
-                        <option {{ $tag->id==$item->tag_id?'SELECTED':''}} value="{{$tag->id}}">{{$tag->tag}}</option>
-                      @endforeach
-                    </select>
-                    @error('tag_id')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea name="description" class="form-control" id="description" placeholder="Description">{{ $item->description }}</textarea>
-                    @error('description')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="summernote">Post</label>
-                    <textarea name="post" id="summernote">{{ $item->post }}</textarea>
-                    @error('post')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <div class="custom-control custom-switch">
-                      <input type="checkbox" {{ $item->is_featured?'checked':'' }} name="is_featured" class="custom-control-input" id="customSwitch1">
-                      <label class="custom-control-label" for="customSwitch1">Is Featured</label>
-                    </div>
                   </div>
                   <div class="form-group">
                     <label for="mataTitle">Mata Title</label>
@@ -82,21 +50,6 @@
                     @enderror
                   </div>
 
-                  <div class="form-group">
-                    <label class="img-hldr">
-                        <div class="row">
-                            <img src="{{ $item->getFirstMediaUrl('images', 'thumb') }}" id="image-container1" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" />
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                        
-                    </label>
-                  </div>
-                  
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -136,16 +89,7 @@ $(function () {
   });
   $('#quickForm').validate({
     rules: {
-      title: {
-        required: true,
-        minlength: 5
-
-      },
-      description: {
-        required: true,
-        minlength: 30
-      },
-      summernote: {
+      body: {
         required: true
       },
     },
@@ -158,7 +102,7 @@ $(function () {
         required: "Please provide a password",
         minlength: "Your password must be at least 5 characters long"
       },
-      summernote: "Description is required",
+      body: "Description is required",
       terms: "Please accept our terms"
     },
     errorElement: 'span',

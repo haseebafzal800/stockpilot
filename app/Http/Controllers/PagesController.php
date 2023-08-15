@@ -2,24 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogsModel;
+use App\Models\HomeModel;
+use App\Models\NewsModel;
+use App\Models\TeamModel;
+use App\Models\TestimonialsModel;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     function index(){
-        $data['pageTitle'] = 'Home | Stock Pilot';
+        $data['page'] = HomeModel::find(1);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
         return view("pages/home", $data);
     }
     
     public function aboutUs(){
-        $data['pageTitle'] = 'About Us | Stock Pilot';
+        $data['page'] = HomeModel::find(2);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
+        $data['team'] = TeamModel::get();
+        $data['news'] = NewsModel::get();
         return view("pages/about-us", $data);
+    }
 
+    public function products(){
+        $data['page'] = HomeModel::find(3);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
+        return view("pages/products", $data);
     }
     public function blogs(){
         $data['pageTitle'] = 'Blogs | Stock Pilot';
+        $data['blogs'] = BlogsModel::get();
+        $data['testimonials'] = TestimonialsModel::get();
         return view("pages/blog", $data);
-
     }
     public function contactUs(){
         $data['pageTitle'] = 'Contact Us | Stock Pilot';
@@ -44,11 +68,6 @@ class PagesController extends Controller
     public function partners(){
         $data['pageTitle'] = 'partners | Stock Pilot';
         return view("pages/partners", $data);
-
-    }
-    public function products(){
-        $data['pageTitle'] = 'Products | Stock Pilot';
-        return view("pages/products", $data);
 
     }
     public function subscribers(){

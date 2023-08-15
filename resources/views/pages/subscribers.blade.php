@@ -2,7 +2,7 @@
 @section('content')
 <div class="subscriber-page" id="subscriber-page wrapper">
 @include('includes.header')
-<div class="subscriber-page-section mb-5 px-lg-5">
+        <div class="subscriber-page-section mb-5 px-lg-5">
             <div class="container">
                 <div class="subscriber-page-inside py-lg-5">        
                     <div class="row ">

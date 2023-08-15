@@ -7,73 +7,40 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="slider testi-image-slider">
+                            @foreach($testimonials ?? array() as $testimonial)
                             <div>
-                                <img src="{{url('images/img5.png')}}" class="img-fluid">
+                                <img src="{{ $testimonial->getFirstMediaUrl('images', 'thumb') }}" class="img-fluid">
                             </div>
-                            <div>
-                                <img src="{{url('images/img5.png')}}" class="img-fluid">
-                            </div>
-                            <div>
-                                <img src="{{url('images/img5.png')}}" class="img-fluid">
-                            </div>
+                            @endforeach
+                            
                         </div>
                     </div>
                     <div class="col-lg-7">
                         <div class="slider testi-review-text mt-4">
+                        @foreach($testimonials ?? array() as $testimonial)
                             <div>
                                 <div class="qoute-img mb-3">
                                     <img src="{{url('images/qoute.png')}}">
                                 </div>
                                 <div class="stars-img mb-3">
-                                    <img src="{{url('images/stars.png')}}">
+                                    <div class="stars">
+                                        @for($st=1; $st <= 5; $st++)
+                                            <span class="starts fa fa-star {{ ($testimonial->star_rating >= $st ? 'text-warning':'') }}"></span>
+                                        @endfor
+                                    </div>
                                 </div>
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel lectus lacinia, scelerisque mauris ac, lacinia lorem.</p>
+                                <p class="mb-5">{{ $testimonial->body }}</p>
                                 <div class="d-flex justify-content-between">
                                     <div class="text">
-                                        <strong>Areeba Shahzad</strong>
-                                        <span>CEO Discord</span>
+                                        <strong>{{ $testimonial->client_name }}</strong>
+                                        <span>{{ $testimonial->designation }}</span>
                                     </div>
                                     <div class="icon">
-                                        <img src="{{url('images/icon01.png')}}">
+                                        <img  style="width: 46px; height:46px;" class="img-fluid" src="{{ $testimonial->getFirstMediaUrl('company_logo', 'thumb') }}">
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="qoute-img mb-3">
-                                    <img src="{{url('images/qoute.png')}}">
-                                </div>
-                                <div class="stars-img mb-3">
-                                    <img src="{{url('images/stars.png')}}">
-                                </div>
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel lectus lacinia, scelerisque mauris ac, lacinia lorem.</p>
-                                <div class="d-flex justify-content-between">
-                                    <div class="text">
-                                        <strong>Areeba Shahzad</strong>
-                                        <span>CEO Discord</span>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{{url('images/icon01.png')}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="qoute-img mb-3">
-                                    <img src="{{url('images/qoute.png')}}">
-                                </div>
-                                <div class="stars-img mb-3">
-                                    <img src="{{url('images/stars.png')}}">
-                                </div>
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel lectus lacinia, scelerisque mauris ac, lacinia lorem.</p>
-                                <div class="d-flex justify-content-between">
-                                    <div class="text">
-                                        <strong>Areeba Shahzad</strong>
-                                        <span>CEO Discord</span>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{{url('images/icon01.png')}}">
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
                         </div>
                     </div>
                 </div>

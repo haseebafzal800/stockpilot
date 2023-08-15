@@ -20,6 +20,7 @@ class Blogs extends Migration
             $table->string('title', 255);  
             $table->text('description')->nullable(); 
             $table->text('post');
+            $table->enum('is_featured', ['off', 'on'])->default('off');
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
             $table->integer('user_id');
             $table->string('mataTitle', 255)->nullable();

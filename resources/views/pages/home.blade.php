@@ -3,14 +3,12 @@
 <div id="wrapper index-page" class="index-page">
 		<div class="w1">
         @include('includes.header')
+		<div class="d-none">
 			<div class="banner text-center text-lg-start">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
 							<h1>Subscribe to Alternative Investment Strategies</h1>
-							{{--@foreach($testimonials as $testimonial)
-								<p>{{ $testimonial }}</p>
-							@endforeach --}}
 							<p>Fill the Opportunity Gaps Left by Traditional Financial Institutions</p>
 							<div class="buttons-holder d-lg-flex">
 								<a class="btn custom-btn" href="#">See how it works</a>
@@ -380,6 +378,9 @@
 					</div>
 				</div>
 			</div>
+			</div>
+			{!! $page->body !!}
+			
         
 			@include('includes.testimonials')
         @include('includes.newsletter')

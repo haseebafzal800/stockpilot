@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a class="menu-btn d-lg-none" href="#"><img src="images/menu.png"></a>
             <div class="logo">
-                <a href="#"><img src="{{url('images/logo.png')}}" alt="logo" class="img-fluid"></a>
+                <a href="{{url('/')}}"><img src="{{url('images/logo.png')}}" alt="logo" class="img-fluid"></a>
             </div>
             <nav id="nav">
                 <a class="menu-btn d-lg-none" href="#"><img src="images/menu.png"></a>
@@ -22,7 +22,7 @@
             </div>
             <div class="header-right d-none d-lg-block">
                 <div class="d-flex align-items-center">
-                    <div class="dropdown">
+                    <!-- <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-globe" aria-hidden="true"></i> EN <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </button>
@@ -31,7 +31,7 @@
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     @guest
                     <a class="btn custom-btn" href="{{route('login')}}">Login</a>
                     @else

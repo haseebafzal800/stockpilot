@@ -1,6 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{$pageTitle ?? ''}}</title>
+<meta name="description" content="{{$mataDescription ?? ''}}">
+<meta name="keywords" content="{{$mataTags ?? ''}}">
 <link rel="stylesheet" type="text/css" href="{{ url('/css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">

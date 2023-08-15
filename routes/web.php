@@ -6,10 +6,13 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\TestimonialsController;
+use App\Http\Controllers\Admin\SettingController;
+
 
 
 
@@ -89,7 +92,45 @@ Route::get('/admin/tag/delete/{id}', [TagsController::class, 'destroy'])->name('
 Route::get('/admin/tag/edit/{id}', [TagsController::class, 'edit'])->name('edit-tag');
 // Route::post('/admin/tag/update', [TagsController::class, 'update'])->name('update-tag');
 
+//FAQ Heads
+Route::get('/admin/faq-heads', [FaqsController::class, 'heads'])->name('faq-heads');
+Route::post('/admin/faq-heads/save', [FaqsController::class, 'storeHeads'])->name('save-faq-heads');
+Route::get('/admin/faq-heads/delete/{id}', [FaqsController::class, 'destroyHeads'])->name('delete-faq-heads');
+Route::get('/admin/faq-heads/edit/{id}', [FaqsController::class, 'editHeads'])->name('edit-faq-heads');
 
+//FAQs
+Route::get('/admin/faqs', [FaqsController::class, 'index'])->name('faqs');
+Route::post('/admin/faq/save', [FaqsController::class, 'store'])->name('save-faq');
+Route::get('/admin/faq/delete/{id}', [FaqsController::class, 'destroy'])->name('delete-faq');
+Route::get('/admin/faq/edit/{id}', [FaqsController::class, 'edit'])->name('edit-faq');
+
+// Pages
+Route::get('/admin/settings/home', [SettingController::class, 'home'])->name('home-settings');
+Route::post('/admin/settings/home/update', [SettingController::class, 'updateHome'])->name('update-home-settings');
+
+Route::get('/admin/settings/about-us', [SettingController::class, 'aboutUs'])->name('aboutus-settings');
+Route::post('/admin/settings/about-us/update', [SettingController::class, 'updateAboutUs'])->name('update-aboutus-settings');
+
+Route::get('/admin/settings/services', [SettingController::class, 'services'])->name('services-settings');
+Route::post('/admin/settings/services/update', [SettingController::class, 'updateServices'])->name('update-services-settings');
+
+Route::get('/admin/settings/portfolio', [SettingController::class, 'portfolio'])->name('portfolio-settings');
+Route::post('/admin/settings/portfolio/update', [SettingController::class, 'updatePortfolio'])->name('update-portfolio-settings');
+
+Route::get('/admin/settings/support', [SettingController::class, 'support'])->name('support-settings');
+Route::post('/admin/settings/support/update', [SettingController::class, 'updateSupport'])->name('update-support-settings');
+
+Route::get('/admin/settings/blog', [SettingController::class, 'blog'])->name('blog-settings');
+Route::post('/admin/settings/blog/update', [SettingController::class, 'updateBlog'])->name('update-blog-settings');
+
+Route::get('/admin/settings/demo', [SettingController::class, 'demo'])->name('demo-settings');
+Route::post('/admin/settings/demo/update', [SettingController::class, 'updateDemo'])->name('update-demo-settings');
+
+Route::get('/admin/settings/faqs', [SettingController::class, 'faqs'])->name('faqs-settings');
+Route::post('/admin/settings/faqs/update', [SettingController::class, 'updateFaqs'])->name('update-faqs-settings');
+
+Route::get('/admin/settings/partner', [SettingController::class, 'partner'])->name('partner-settings');
+Route::post('/admin/settings/partner/update', [SettingController::class, 'updatePartner'])->name('update-partner-settings');
 
 Route::post('/logout', function () {
     Auth::logout();

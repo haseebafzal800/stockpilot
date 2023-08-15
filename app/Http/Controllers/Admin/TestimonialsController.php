@@ -48,39 +48,71 @@ class TestimonialsController extends Controller
                     $thumbnail = '<img class="img img-fluid" src="'.$src.'">';
                     return $thumbnail;
                 })
+                ->addColumn('company_logo', function($row){
+                    $src1 = $row->getFirstMediaUrl('company_logo', 'thumb');
+                    $company_logo = '<img class="img img-fluid" src="'.$src1.'">';
+                    return $company_logo;
+                })
                 ->addColumn('client', function($row){
                     $client = $row->client_name.' '.$row->designation;
                     return $client;
                 })
-                ->rawColumns(['thumbnail', 'client', 'created_at', 'action'])
+                ->rawColumns(['thumbnail', 'company_logo', 'client', 'created_at', 'action'])
                 ->make(true);
             }
         $data['pageTitle'] = 'Testimonials';
+        $data['testimonialsListActive'] = 'active';
+        $data['testimonialsOpening'] = 'menu-is-opening';  
+        $data['testimonialsOpend'] = 'menu-open';
         return view('admin.testimonials.index', $data);
     }
     function create(){
         $data['pageTitle'] = 'Create Testimonial';
+        $data['testimonialsCreateActive'] = 'active';
+        $data['testimonialsOpening'] = 'menu-is-opening';  
+        $data['testimonialsOpend'] = 'menu-open';
         return view('admin.testimonials.form', $data);
     }
+    // public function store(TestimonialsRequest $request)
+    // {
+        
+    //     $post = TestimonialsModel::create($request->all());
+    //     if($post){
+    //         if($request->hasFile('image') && $request->file('image')->isValid()){
+    //                 $post->addMediaFromRequest($request->file('image'))->toMediaCollection('images', 'public');
+    //         }
+    //         if($request->hasFile('image12') && $request->file('image12')->isValid()){
+    //             $post->addMediaFromRequest('image12')->toMediaCollection('company_logo', 'public');
+    //         }
+    //         session()->flash('success', '<div class="alert alert-success">Successfully saved the data!</div>');
+            
+    //         return redirect()->route('testimonials');
+    //     }else{
+    //         session()->flash('error', '<div class="alert alert-danger">Successfully saved the data!</div>');
+    //         return back();
+    //     }
+
+    // }
+
     public function store(TestimonialsRequest $request)
     {
-        
         $post = TestimonialsModel::create($request->all());
-        if($post){
-            if($request->hasFile('image') && $request->file('image')->isValid()){
+
+        if ($post) {
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
                 $post->addMediaFromRequest('image')->toMediaCollection('images');
             }
-            if($request->hasFile('image12') && $request->file('image12')->isValid()){
+
+            if ($request->hasFile('image12') && $request->file('image12')->isValid()) {
                 $post->addMediaFromRequest('image12')->toMediaCollection('company_logo');
             }
+
             session()->flash('success', '<div class="alert alert-success">Successfully saved the data!</div>');
-            
             return redirect()->route('testimonials');
-        }else{
-            session()->flash('error', '<div class="alert alert-danger">Successfully saved the data!</div>');
+        } else {
+            session()->flash('error', '<div class="alert alert-danger">Failed to save the data.</div>');
             return back();
         }
-
     }
     public function show(string $id): View
     {
@@ -91,35 +123,66 @@ class TestimonialsController extends Controller
     public function edit($id)
     {
         $data['pageTitle'] = 'Edit Testimonial';
+        $data['testimonialsListActive'] = 'active';
+        $data['testimonialsOpening'] = 'menu-is-opening';  
+        $data['testimonialsOpend'] = 'menu-open';
         $data['item'] = TestimonialsModel::find($id);
         
         return view('admin.testimonials.edit', $data);
     }
 
-    
     public function update(TestimonialsRequest $request)
     {
         $post = TestimonialsModel::find($request->id);
         
-        // dd($request->all());
         $post->update($request->all());
-        if($post){
-            if($request->hasFile('image') && $request->file('image')->isValid()){
+
+        if ($post) {
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
+                $post->clearMediaCollection('images'); // Remove existing images
                 $post->addMediaFromRequest('image')->toMediaCollection('images');
             }
-            if($request->hasFile('image12') && $request->file('image12')->isValid()){
+
+            if ($request->hasFile('image12') && $request->file('image12')->isValid()) {
+                $post->clearMediaCollection('company_logo');
                 $post->addMediaFromRequest('image12')->toMediaCollection('company_logo');
             }
+
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
             return redirect()->route('testimonials');
-        }else{
-            session()->flash('msg', 'Successfully saved the data!');
+        } else {
+            session()->flash('msg', 'Failed to save the data.');
             session()->flash('alert-class', 'alert-danger');
             return back();
         }
     }
+
+
+
+    // public function update(TestimonialsRequest $request)
+    // {
+    //     $post = TestimonialsModel::find($request->id);
+        
+    //     // dd($request->all());
+    //     $post->update($request->all());
+    //     if($post){
+    //         if($request->hasFile('image') && $request->file('image')->isValid()){
+    //             $post->addMediaFromRequest($request->file('image'))->toMediaCollection('images', 'public');
+    //         }
+    //         if($request->hasFile('image12') && $request->file('image12')->isValid()){
+    //             $post->addMediaFromRequest('image12')->toMediaCollection('company_logo', 'public');
+    //         }
+    //         session()->flash('msg', 'Successfully saved the data!');
+    //         session()->flash('alert-class', 'alert-success');
+            
+    //         return redirect()->route('testimonials');
+    //     }else{
+    //         session()->flash('msg', 'Successfully saved the data!');
+    //         session()->flash('alert-class', 'alert-danger');
+    //         return back();
+    //     }
+    // }
 
     
     public function destroy($id)

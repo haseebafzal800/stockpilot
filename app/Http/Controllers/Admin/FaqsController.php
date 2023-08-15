@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TagsRequest;
+use App\Models\FaqHeadsModel;
 use App\Models\TagsModel;
 use DataTables;
 use Illuminate\Support\Str;
 
 
-class TagsController extends Controller
+class FaqsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -44,15 +45,10 @@ class TagsController extends Controller
                 ->make(true);
             }
         $data['pageTitle'] = 'Tags';
-        $data['tagsListActive'] = 'active';
-        $data['tagsOpening'] = 'menu-is-opening';  
-        $data['tagsOpend'] = 'menu-open';
-        return view('admin.tags.index', $data);
-    }
-    function create(){
-        $data['pageTitle'] = 'Create Blog';
-        
-        return view('admin.blogs.form', $data);
+        $data['faqsListActive'] = 'active';
+        $data['faqsOpening'] = 'menu-is-opening';  
+        $data['faqsOpend'] = 'menu-open';
+        return view('admin.faqs.index', $data);
     }
     public function store(TagsRequest $request)
     {
@@ -84,12 +80,6 @@ class TagsController extends Controller
             }
         }
 
-    }
-    public function show(string $id): View
-    {
-        return view('user.profile', [
-            'user' => User::findOrFail($id)
-        ]);
     }
     public function edit($id)
     {
@@ -131,6 +121,32 @@ class TagsController extends Controller
         }else{
             return 'notok';
         }
+    }
+
+    //FAQs Heads
+
+
+    public function heads(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = FaqHeadsModel::select('id','title','status')->get();
+            return Datatables::of($data)->addIndexColumn()
+                
+                ->addColumn('action', function($row){
+                    $url = "/admin/tag/delete/".$row->id;
+                    $editUrl = @url('/admin/tag/edit/'.$row->id);
+                    $btn = '<a href="javascript:void(0)" onclick="DeleteMe(this, '."'".$url."'".')" class="btn btn-danger btn-xs btn-delete"><i class="fa fa-trash"></i></a>';
+                    $btn .= ' <a href="javascript:void(0)" onclick="editMe('."'".$editUrl."'".')" action="'.@url('/admin/tag/edit/'.$row->id).'" class="btn btn-primary btn-edit-tag btn-xs"><i class="fa fa-edit"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+            }
+        $data['pageTitle'] = 'FAQ Heads';
+        $data['faqHeadListActive'] = 'active';
+        $data['faqsOpening'] = 'menu-is-opening';  
+        $data['faqsOpend'] = 'menu-open';
+        return view('admin.faq-heads.index', $data);
     }
 }
 
