@@ -18,6 +18,7 @@ class Faqs extends Migration
             $table->string('question', 255);
             $table->text('answer');
             $table->integer('faq_head_id');
+            $table->integer('faq_subhead_id');
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
             $table->timestamps();
             $table->softDeletes();

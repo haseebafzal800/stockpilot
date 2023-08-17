@@ -97,13 +97,14 @@ Route::get('/admin/faq-heads', [FaqsController::class, 'heads'])->name('faq-head
 Route::post('/admin/faq-heads/save', [FaqsController::class, 'storeHeads'])->name('save-faq-heads');
 Route::get('/admin/faq-heads/delete/{id}', [FaqsController::class, 'destroyHeads'])->name('delete-faq-heads');
 Route::get('/admin/faq-heads/edit/{id}', [FaqsController::class, 'editHeads'])->name('edit-faq-heads');
+Route::get('admin/faq-heads/children/{id}', [FaqsController::class, 'children'])->name('faq-head-children');
 
 //FAQs
 Route::get('/admin/faqs', [FaqsController::class, 'index'])->name('faqs');
 Route::post('/admin/faq/save', [FaqsController::class, 'store'])->name('save-faq');
 Route::get('/admin/faq/delete/{id}', [FaqsController::class, 'destroy'])->name('delete-faq');
 Route::get('/admin/faq/edit/{id}', [FaqsController::class, 'edit'])->name('edit-faq');
-
+// admin/faqs/getChildren/1
 // Pages
 Route::get('/admin/settings/home', [SettingController::class, 'home'])->name('home-settings');
 Route::post('/admin/settings/home/update', [SettingController::class, 'updateHome'])->name('update-home-settings');

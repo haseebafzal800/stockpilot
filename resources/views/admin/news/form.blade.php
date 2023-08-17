@@ -76,21 +76,14 @@
                     @enderror
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group custom-img-hanlder">
                   
                   <label class="img-hldr">
-                        <div class="row">
+                        <div class="row-custom">
                           <img id="image-container1" class="img img-fluid" />
                           <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" /><br>
                         </div>
-                        <div class="row">
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                        
+                        <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
                     </label>
   
 
@@ -199,10 +192,36 @@ $(function(){
           /* Reset input element */
           $('#image-upload').val("");
           /* Clear image preview container */
-          $('#image-container').attr("src","");
+          $('#image-container1').attr("src","");
+          $('#image-container1').removeAttr("src");
+          return false;
         }
                            );
 })
 </script>
   
 @stop
+
+
+<style>
+  .custom-img-hanlder .img-hldr{
+    width: 400px;
+    height: 250px;
+    position: relative;
+  }
+  .custom-img-hanlder img{
+    margin: 0;
+    object-fit: cover;
+  }
+  .custom-img-hanlder .row-custom{
+    width: 400px;
+    height: 250px;
+  }
+  .custom-img-hanlder #cancel-btn{
+    position: absolute;
+    z-index:9;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>

@@ -21,7 +21,7 @@ class Testimonials extends Migration
             $table->string('designation', 255);
             $table->string('star_rating', 5);
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
-            $table->string('body')->nullable();
+            $table->text('body')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

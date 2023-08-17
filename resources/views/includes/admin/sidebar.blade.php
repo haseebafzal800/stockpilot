@@ -244,7 +244,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{@url('/admin/faqs')}}" class="nav-link {{$faqListActive??''}}">
+                <a href="{{@url('/admin/faqs')}}" class="nav-link {{$faqsListActive??''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>FAQs</p>
                 </a>

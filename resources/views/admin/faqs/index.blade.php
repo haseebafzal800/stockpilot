@@ -27,8 +27,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Head</th>
-                        <th>Parent</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Heads</th>
                         <th width="100px">Action</th>
                     </tr>
                 </thead>
@@ -37,8 +38,9 @@
                   <tfoot>
                   <tr>
                         <th>ID</th>
-                        <th>Head</th>
-                        <th>Parent</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Heads</th>
                         <th width="100px">Action</th>
                     </tr>
                   </tfoot>
@@ -65,30 +67,45 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Add New FAQ Head</h4>
+          <h4 class="modal-title">Add New FAQ</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
-        <form action="{{@route('save-faq-heads')}}" method="post" id="quickForm">
-          <input type="hidden" name="id" id="faqHead-id" value="">
+        <form action="{{@route('save-faq')}}" method="post" id="quickForm">
+          <input type="hidden" name="id" id="faq-id" value="">
         <div class="modal-body">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" id="faqtitle" placeholder="Title here" name="title" class="form-control">
+                <label for="question">Question</label>
+                <input type="text" id="question" placeholder="Question here" name="question" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="question">Answer</label>
+                <textarea id="answer" placeholder="Answer here" name="answer" class="form-control"></textarea>
               </div>
             </div>
 
             <div class="col-sm-12">
               <div class="form-group">
-                <label for="parent_id">Parent</label>
-                <select id="parent_id" name="parent_id" class="form-control">
-                  <option value="">Select Parent</option>
+                <label for="grand_parent_id">FAQ Head</label>
+                <select id="grand_parent_id"  name="grand_parent_id" class="form-control">
+                  <option value="">Select Head</option>
                   @foreach($parents as $parent)
                   <option value="{{$parent->id}}">{{$parent->title}}</option>
                   @endforeach
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="parent_id">FAQ Sub-Head</label>
+                <select id="parent_id" name="parent_id" class="form-control">
+                  <option value="">Select Head</option>
                 </select>
               </div>
             </div>
@@ -114,12 +131,16 @@
         $.get(url, {}, function(resp){
           // resp = JSON.parse(resp);
           console.log(resp)
-          $('#faqtitle').val('')
-          $('#faqtitle').val(resp.title)
-          $('#faqHead-id').val(resp.id);
-          $('#parent_id').val(resp.parent_id);
+          $('#parent_id').html(resp.options);
           
-          $('.modal-title').text('Edit FAQ Head')
+          $('#question').val('')
+          $('#question').val(resp.faq.question)
+          $('#answer').val(resp.faq.answer)
+          $('#faq-id').val(resp.faq.id);
+          $('#grand_parent_id').val(resp.faq.faq_head_id);
+          $('#parent_id').val(resp.faq.faq_subhead_id);
+          
+          $('.modal-title').text('Edit FAQ')
           $('#myModal').modal('show');
           return false;
         }); // ajax call
@@ -127,8 +148,13 @@
       
 $.validator.setDefaults({
     submitHandler: function () {
-      // $('#quickForm').submit();    
-      $.post($('#quickForm').attr('action'), {'id':$('#faqHead-id').val(), "_token": "{{ csrf_token() }}", 'title':$('#faqtitle').val() , 'parent_id':$('#parent_id').val()}, function(resp){
+      // $('#quickForm').submit();  
+      let question = $('#question').val();
+      let answer = $('#answer').val();
+      let head = $('#grand_parent_id').val();
+      let subhead = $('#parent_id').val();
+      let id = $('#faq-id').val();
+      $.post($('#quickForm').attr('action'), {'id':id, "_token": "{{ csrf_token() }}", 'question':question , 'answer':answer , 'faq_head_id':head , 'faq_subhead_id':subhead}, function(resp){
         console.log(resp);
         if(resp.status=='ok'){
           Swal.fire('Data Saved!', '', 'success');
@@ -147,7 +173,7 @@ $.validator.setDefaults({
     rules: {
       title: {
         required: true,
-        minlength: 3
+        minlength: 5
 
       }
     },
@@ -169,15 +195,27 @@ $.validator.setDefaults({
       
         processing: true,
         serverSide: true,
-        ajax: "{{ route('faq-heads') }}",
+        ajax: "{{ route('faqs') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'title', name: 'title'},
-            {data: 'parent', name: 'parent'},
+            {data: 'question', name: 'question'},
+            {data: 'answer', name: 'answer'},
+            {data: 'heads', name: 'heads'},
             {data: 'action', name: 'action', orderable: false, searchable: true},
         ]
     });
     //console.log(table);
+
+    $('#grand_parent_id').change(function(){
+      CHildUrl = '<?=@url("admin/faq-heads/children")?>';
+      let id = $(this).val();
+      $.get(CHildUrl+'/'+id, {}, function(resp){
+        // console.log(resp); return;
+        // resp = $.parseJSON(resp);
+        $('#parent_id').html('');
+        $('#parent_id').html(resp);
+      })
+    })
     
   });
 
