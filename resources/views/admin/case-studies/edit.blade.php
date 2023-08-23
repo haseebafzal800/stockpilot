@@ -14,21 +14,27 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" method="post" action="{{@url('/admin/team/update')}}" enctype="multipart/form-data">
+              <form id="quickForm" method="post" action="{{@url('/admin/case-study/update')}}" enctype="multipart/form-data">
                 <div class="card-body">
                 @csrf
                 <input type="hidden" name="id" value="{{ $item->id }}">
                   <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" value="{{ $item->name }}" class="form-control" id="name" placeholder="Enter Name">
-                    @error('name')
+                    <label for="title">Title</label>
+                    <input type="text" name="title" value="{{ $item->title }}" class="form-control" id="title" placeholder="Enter Title">
+                    @error('title')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
+
                   <div class="form-group">
-                    <label for="dsignation">Designation</label>
-                    <input type="text" name="dsignation" value="{{ $item->dsignation }}" class="form-control" id="dsignation" placeholder="Enter Designation">
-                    @error('dsignation')
+                    <label for="title">Tags</label>
+                    <select name="tag_id" class="form-control" id="tag_id">
+                      <option value="" disabled>Select Tag</option>
+                      @foreach($tags as $tag)
+                        <option {{ $tag->id==$item->tag_id?'SELECTED':''}} value="{{$tag->id}}">{{$tag->tag}}</option>
+                      @endforeach
+                    </select>
+                    @error('tag_id')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
@@ -39,7 +45,19 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
-
+                  <div class="form-group">
+                    <label for="summernote">Post</label>
+                    <textarea name="post" id="summernote">{{ $item->post }}</textarea>
+                    @error('post')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" {{ $item->is_featured?'checked':'' }} name="is_featured" class="custom-control-input" id="customSwitch1">
+                      <label class="custom-control-label" for="customSwitch1">Is Featured</label>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <label for="mataTitle">Mata Title</label>
                     <input type="text" name="mataTitle"  value="{{ $item->mataTitle }}" class="form-control" id="mataTitle" placeholder="Enter Mata Title">
@@ -114,17 +132,31 @@ $(function () {
   });
   $('#quickForm').validate({
     rules: {
-      name: {
+      title: {
         required: true,
         minlength: 5
 
       },
-      dsignation: {
+      description: {
         required: true,
-        minlength: 3
-      }
+        minlength: 30
+      },
+      summernote: {
+        required: true
+      },
     },
-    
+    messages: {
+      email: {
+        required: "Please enter a email address",
+        email: "Please enter a valid email address"
+      },
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      summernote: "Description is required",
+      terms: "Please accept our terms"
+    },
     errorElement: 'span',
     errorPlacement: function (error, element) {
       error.addClass('invalid-feedback');

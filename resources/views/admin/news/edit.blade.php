@@ -76,21 +76,16 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
-
-                  <div class="form-group">
+                  <div class="form-group custom-img-hanlder">
                     <label class="img-hldr">
-                        <div class="row">
-                            <img src="{{ $item->getFirstMediaUrl('images', 'thumb') }}" id="image-container1" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" />
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                        
-                    </label>
-                  </div>
+                          <div class="row-custom">
+                            <img id="image-container1" class="img img-fluid" src="{{ $item->getFirstMediaUrl('images', 'thumb') }}"/>
+                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" /><br>
+                          </div>
+                          <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
+                      </label>
+                      <br>
+                    </div>
                   
                 </div>
                 <!-- /.card-body -->

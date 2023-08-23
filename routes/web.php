@@ -6,15 +6,14 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CasestudiesController;
 use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\TestimonialsController;
 use App\Http\Controllers\Admin\SettingController;
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -58,8 +57,7 @@ Route::get('/admin/blog/delete/{id}', [BlogController::class, 'destroy'])->name(
 Route::get('/admin/blog/edit/{id}', [BlogController::class, 'edit'])->name('edit-blog');
 Route::post('/admin/blog/update', [BlogController::class, 'update'])->name('update-blog');
 
-
-//blogs
+//News
 Route::get('/admin/news', [NewsController::class, 'index'])->name('news');
 Route::get('/admin/news/create', [NewsController::class, 'create'])->name('create-news');
 Route::post('/admin/news/save', [NewsController::class, 'store'])->name('save-news');
@@ -104,7 +102,25 @@ Route::get('/admin/faqs', [FaqsController::class, 'index'])->name('faqs');
 Route::post('/admin/faq/save', [FaqsController::class, 'store'])->name('save-faq');
 Route::get('/admin/faq/delete/{id}', [FaqsController::class, 'destroy'])->name('delete-faq');
 Route::get('/admin/faq/edit/{id}', [FaqsController::class, 'edit'])->name('edit-faq');
-// admin/faqs/getChildren/1
+
+
+//Case Studies
+Route::get('/admin/case-studies', [CasestudiesController::class, 'index'])->name('case-studies');
+Route::get('/admin/case-study/create', [CasestudiesController::class, 'create'])->name('create-case-study');
+Route::post('/admin/case-study/save', [CasestudiesController::class, 'store'])->name('save-case-study');
+Route::get('/admin/case-study/delete/{id}', [CasestudiesController::class, 'destroy'])->name('delete-case-study');
+Route::get('/admin/case-study/edit/{id}', [CasestudiesController::class, 'edit'])->name('edit-case-study');
+Route::post('/admin/case-study/update', [CasestudiesController::class, 'update'])->name('update-case-study');
+
+
+//Partners
+Route::get('/admin/partners', [PartnersController::class, 'index'])->name('partners');
+Route::get('/admin/partner/create', [PartnersController::class, 'create'])->name('create-partner');
+Route::post('/admin/partner/save', [PartnersController::class, 'store'])->name('save-partner');
+Route::get('/admin/partner/delete/{id}', [PartnersController::class, 'destroy'])->name('delete-partner');
+Route::get('/admin/partner/edit/{id}', [PartnersController::class, 'edit'])->name('edit-partner');
+Route::post('/admin/partner/update', [PartnersController::class, 'update'])->name('update-partner');
+
 // Pages
 Route::get('/admin/settings/home', [SettingController::class, 'home'])->name('home-settings');
 Route::post('/admin/settings/home/update', [SettingController::class, 'updateHome'])->name('update-home-settings');

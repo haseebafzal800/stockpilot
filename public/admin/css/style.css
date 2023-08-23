@@ -31,6 +31,26 @@
     bottom: 0;
     left: 40%;
 }
+.custom-img-hanlder .img-hldr{
+  width: 400px;
+  height: 250px;
+  position: relative;
+}
+.custom-img-hanlder img{
+  margin: 0;
+  object-fit: cover;
+}
+.custom-img-hanlder .row-custom{
+  width: 400px;
+  height: 250px;
+}
+.custom-img-hanlder #cancel-btn, #cancel-btn12{
+  position: absolute;
+  z-index:9;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 /* star rating css */
 .rating {

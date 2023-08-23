@@ -30,6 +30,6 @@ class Partners extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('partners');
     }
 }

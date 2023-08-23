@@ -14,35 +14,52 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" method="post" action="{{@url('/admin/team/update')}}" enctype="multipart/form-data">
+              <form id="quickForm" method="post" action="{{@url('/admin/case-study/save')}}" enctype="multipart/form-data">
                 <div class="card-body">
                 @csrf
-                <input type="hidden" name="id" value="{{ $item->id }}">
                   <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" value="{{ $item->name }}" class="form-control" id="name" placeholder="Enter Name">
-                    @error('name')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="dsignation">Designation</label>
-                    <input type="text" name="dsignation" value="{{ $item->dsignation }}" class="form-control" id="dsignation" placeholder="Enter Designation">
-                    @error('dsignation')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea name="description" class="form-control" id="description" placeholder="Description">{{ $item->description }}</textarea>
-                    @error('description')
+                    <label for="title">Title</label>
+                    <input type="text" name="title" value="{{ old('title') }}" class="form-control" id="title" placeholder="Enter Title">
+                    @error('title')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
 
                   <div class="form-group">
+                    <label for="title">Title</label>
+                    <select name="tag_id" class="form-control" id="tag_id">
+                      <option value="" selected disabled>Select Tag</option>
+                      @foreach($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->tag}}</option>
+                      @endforeach
+                    </select>
+                    @error('tag_id')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" class="form-control" id="description" placeholder="Description">{{ old('description') }}</textarea>
+                    @error('description')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="summernote">Post</label>
+                    <textarea name="post" id="summernote">{{ old('post') }}</textarea>
+                    @error('post')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" {{ old('is_featured')?'checked':'' }} name="is_featured" class="custom-control-input" id="customSwitch1">
+                      <label class="custom-control-label" for="customSwitch1">Is Featured</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <label for="mataTitle">Mata Title</label>
-                    <input type="text" name="mataTitle"  value="{{ $item->mataTitle }}" class="form-control" id="mataTitle" placeholder="Enter Mata Title">
+                    <input type="text" name="mataTitle"  value="{{ old('mataTitle') }}" class="form-control" id="mataTitle" placeholder="Enter Mata Title">
                     @error('mataTitle')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -50,7 +67,7 @@
 
                   <div class="form-group">
                     <label for="mataDescription">Mata Description</label>
-                    <input type="text" name="mataDescription" value="{{ $item->mataDescription }}" class="form-control" id="mataDescription" placeholder="Enter Mata Description">
+                    <input type="text" name="mataDescription" value="{{ old('mataDescription') }}" class="form-control" id="mataDescription" placeholder="Enter Mata Description">
                     @error('mataDescription')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -58,7 +75,7 @@
 
                   <div class="form-group">
                     <label for="mataTags">Mata Tags</label>
-                    <input type="text" name="mataTags" value="{{ $item->mataTags }}" class="form-control" id="mataTags" placeholder="Enter Mata Tags">
+                    <input type="text" name="mataTags" value="{{ old('mataTags') }}" class="form-control" id="mataTags" placeholder="Enter Mata Tags">
                     @error('mataTags')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -67,10 +84,13 @@
                   <div class="form-group custom-img-hanlder">
                     <label class="img-hldr">
                           <div class="row-custom">
-                            <img id="image-container1" class="img img-fluid" src="{{ $item->getFirstMediaUrl('images', 'thumb') }}"/>
+                            <img id="image-container1" class="img img-fluid" />
                             <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" /><br>
                           </div>
                           <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
+                          @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                          @enderror
                       </label>
                       <br>
                     </div>
@@ -97,9 +117,7 @@
   @include('includes.admin.validationScript')
   <!-- Summernote -->
 <script src="{{@url('admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
 <link rel="stylesheet" href="{{@url('admin/plugins/summernote/summernote-bs4.min.css')}}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css">
  
 
   <script>
@@ -114,17 +132,42 @@ $(function () {
   });
   $('#quickForm').validate({
     rules: {
-      name: {
+      title: {
         required: true,
         minlength: 5
-
       },
-      dsignation: {
+      description: {
         required: true,
-        minlength: 3
-      }
+        minlength: 30
+      },
+      summernote: {
+        required: true
+      },
+      tag_id: {
+        required: true
+      },
+      image: {
+            required: true,
+            extension: "jpg|jpeg|png"
+        }
     },
-    
+    messages: {
+      email: {
+        required: "Please enter a email address",
+        email: "Please enter a valid email address"
+      },
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      image: {
+            required: "Please upload file.",
+            extension: "Please upload file in these format only (jpg, jpeg, png)."
+        },
+      summernote: "Description is required",
+      tag_id: "Please select a tag",
+      terms: "Please accept our terms"
+    },
     errorElement: 'span',
     errorPlacement: function (error, element) {
       error.addClass('invalid-feedback');

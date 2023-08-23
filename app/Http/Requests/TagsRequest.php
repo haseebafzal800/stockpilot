@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class TagsRequest extends FormRequest
 {
@@ -21,7 +22,7 @@ class TagsRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
             'tag' => 'required|string|max:255|min:3',

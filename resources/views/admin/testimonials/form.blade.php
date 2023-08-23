@@ -72,35 +72,36 @@
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <div class="form-group">
-                    <label for="designation">Client Image</label>
-                      <label class="img-hldr">
-                        <div class="row">
+                  <div class="form-group custom-img-hanlder">
+                  <label for="designation">Client Image</label>
+                    <label class="img-hldr">
+                          <div class="row-custom">
                             <img id="image-container1" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" />
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                      </label>
+                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" /><br>
+                          </div>
+                          <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
+                          @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                          @enderror
+                        </label>
+                      <br>
                     </div>
+                    
                   </div>
                   <div class="col-sm-6">
-                    <div class="form-group">
-                    <label for="designation">Company Logo</label>
-                      <label class="img-hldr">
-                        <div class="row">
+                    <div class="form-group custom-img-hanlder">
+                  <label for="designation">Company Logo</label>
+                    <label class="img-hldr">
+                          <div class="row-custom">
                             <img id="image-container12" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image12" id="image-upload12" />
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn12" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                      </label>
+                            <input class="invisible" type="file" accept="image/*" name="image12" id="image-upload12" /><br>
+                          </div>
+                          <button id="cancel-btn12" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
+                          @error('image12')
+                            <div class="text-danger">{{ $message }}</div>
+                          @enderror
+                        </label>
+                      <br>
                     </div>
                   </div>
                 </div>
@@ -158,12 +159,29 @@ $(function () {
       designation: {
         required: true
       },
+      image: {
+            required: true,
+            extension: "jpg|jpeg|png"
+        },
+
+      image12: {
+            required: true,
+            extension: "jpg|jpeg|png"
+        }
     },
     messages: {
       email: {
         required: "Please enter a email address",
         email: "Please enter a valid email address"
       },
+      image: {
+            required: "Please upload file.",
+            extension: "Please upload file in these format only (jpg, jpeg, png)."
+        },
+        image12: {
+            required: "Please upload file.",
+            extension: "Please upload file in these format only (jpg, jpeg, png)."
+        },
       password: {
         required: "Please provide a password",
         minlength: "Your password must be at least 5 characters long"

@@ -72,35 +72,30 @@
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <div class="form-group">
-                    <label for="designation">Client Image</label>
-                      <label class="img-hldr">
-                        <div class="row">
-                            <img id="image-container1" src="{{ $item->getFirstMediaUrl('images', 'thumb') }}" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" />
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
+                  <div class="form-group custom-img-hanlder">
+                  <label for="designation">Client Image</label>
+                    <label class="img-hldr">
+                          <div class="row-custom">
+                            <img id="image-container1" class="img img-fluid" src="{{ $item->getFirstMediaUrl('images', 'thumb') }}"/>
+                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" /><br>
+                          </div>
+                          <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
                       </label>
+                      <br>
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <div class="form-group">
-                    <label for="designation">Company Logo</label>
-                      <label class="img-hldr">
-                        <div class="row">
-                            <img id="image-container12" src="{{ $item->getFirstMediaUrl('company_logo', 'thumb') }}" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image12" id="image-upload12" />
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn12" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
+                    
+                    <div class="form-group custom-img-hanlder">
+                    <label for="designation">Logo Image</label>
+                    <label class="img-hldr">
+                          <div class="row-custom">
+                            <img id="image-container12" class="img img-fluid" src="{{ $item->getFirstMediaUrl('company_logo', 'thumb') }}"/>
+                            <input class="invisible" type="file" accept="image/*" name="image12" id="image-upload" /><br>
+                          </div>
+                          <button id="cancel-btn12" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
                       </label>
+                      <br>
                     </div>
                   </div>
                 </div>

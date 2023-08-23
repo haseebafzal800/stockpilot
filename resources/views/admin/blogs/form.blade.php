@@ -81,23 +81,19 @@
                     @enderror
                   </div>
 
-                  <div class="form-group">
-                  
-                  <label class="img-hldr">
-                        <div class="row">
+                  <div class="form-group custom-img-hanlder">
+                    <label class="img-hldr">
+                          <div class="row-custom">
                             <img id="image-container1" class="img img-fluid" />
-                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" />
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                        
-                    </label>
-  
-
-                  </div>
+                            <input class="invisible" type="file" accept="image/*" name="image" id="image-upload" /><br>
+                          </div>
+                          <button id="cancel-btn" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button>
+                          @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                          @enderror
+                      </label>
+                      <br>
+                    </div>
                   
                 </div>
                 <!-- /.card-body -->
@@ -150,12 +146,20 @@ $(function () {
       tag_id: {
         required: true
       },
+      image: {
+            required: true,
+            extension: "jpg|jpeg|png"
+        }
     },
     messages: {
       email: {
         required: "Please enter a email address",
         email: "Please enter a valid email address"
       },
+      image: {
+            required: "Please upload file.",
+            extension: "Please upload file in these format only (jpg, jpeg, png)."
+        },
       password: {
         required: "Please provide a password",
         minlength: "Your password must be at least 5 characters long"

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class FaqRequest extends FormRequest
 {
@@ -21,7 +22,7 @@ class FaqRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
             'question' => 'required|string|max:255|min:3',

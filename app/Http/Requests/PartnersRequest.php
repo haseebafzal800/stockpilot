@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 
-class TeamRequest extends FormRequest
+class PartnersRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,15 +26,14 @@ class TeamRequest extends FormRequest
     {
         if($request->has('id')){
             return [
-                'name' => 'required|string|max:255|min:5',
-                'dsignation' => 'required|string|min:3',
-            ];
+                'company_name' => 'required|string|max:255|min:3',
+            ];    
         }else{
             return [
-                'name' => 'required|string|max:255|min:5',
-                'dsignation' => 'required|string|min:3',
+                'company_name' => 'required|string|max:255|min:5',
                 'image' => 'required|mimes:jpeg,png,jpg'
             ];
         }
     }
 }
+

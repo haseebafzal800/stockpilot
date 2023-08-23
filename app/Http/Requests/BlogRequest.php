@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class BlogRequest extends FormRequest
 {
@@ -21,11 +22,20 @@ class BlogRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
-        return [
-            'title' => 'required|string|max:255|min:5',
-            'description' => 'required|string|min:30',
-        ];
+        
+        if($request->has('id')){
+            return [
+                'title' => 'required|string|max:255|min:5',
+                'description' => 'required|string|min:30',
+            ];
+        }else{
+            return [
+                'title' => 'required|string|max:255|min:5',
+                'description' => 'required|string|min:30',
+                'image' => 'required|mimes:jpeg,png,jpg'
+            ];
+        }
     }
 }
