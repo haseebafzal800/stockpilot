@@ -12,7 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "*",
-        "spatie/laravel-medialibrary": "^9.0",
+        "spatie/laravel-medialibrary": "^9.12",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

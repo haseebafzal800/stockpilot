@@ -40,18 +40,28 @@ class PagesController extends Controller
         return view("pages/products", $data);
     }
     public function blogs(){
-        $data['pageTitle'] = 'Blogs | Stock Pilot';
+        $data['page'] = HomeModel::find(5);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
         $data['blogs'] = BlogsModel::get();
         $data['testimonials'] = TestimonialsModel::get();
         return view("pages/blog", $data);
     }
     public function contactUs(){
-        $data['pageTitle'] = 'Contact Us | Stock Pilot';
+        $data['page'] = HomeModel::find(8);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
         return view("pages/contact-us", $data);
 
     }
     public function demo(){
-        $data['pageTitle'] = 'Demo | Stock Pilot';
+        $data['page'] = HomeModel::find(11);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
         return view("pages/demo", $data);
 
     }
@@ -62,7 +72,11 @@ class PagesController extends Controller
 
     }
     public function pilot(){
-        $data['pageTitle'] = 'Pilot | Stock Pilot';
+        $data['page'] = HomeModel::find(14);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
         return view("pages/pilot", $data);
 
     }
@@ -72,17 +86,30 @@ class PagesController extends Controller
 
     }
     public function subscribers(){
-        $data['pageTitle'] = 'Subscribers | Stock Pilot';
+        $data['page'] = HomeModel::find(4);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
         return view("pages/subscribers", $data);
 
     }
     public function strategy(){
-        $data['pageTitle'] = 'Strategy | Stock Pilot';
+        $data['page'] = HomeModel::find(10);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
         return view("pages/strategy", $data);
 
     }
     public function caseStudies(){
-        $data['pageTitle'] = 'Case Studies | Stock Pilot';
+        $data['page'] = HomeModel::find(7);
+        $data['page2'] = HomeModel::find(8);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
         return view("pages/case-studies", $data);
 
     }

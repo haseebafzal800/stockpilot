@@ -148,12 +148,126 @@ class SettingController extends Controller
         }
     }
 
+    public function news(){
+        $data['pageTitle'] = 'News Page Settings';
+        $data['newsSettings'] = 'active';
+        $data['settingsOpend'] = 'menu-open';
+        $data['settingsOpening'] = 'menu-is-opening';
+        $data['item'] = HomeModel::find(6);
+        return view('admin.pages.news', $data);
+    }
+    public function updateNews(Request $request){
+        $body = HomeModel::find($request->id);
+        $request['user_id'] = auth()->user()->id;
+        if($body->update($request->all())){
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-success');
+            
+            return redirect()->route('news-settings');
+        }else{
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-danger');
+            return back();
+        }
+    }
+
+    public function caseStudies(){
+        $data['pageTitle'] = 'Case Studies Settings';
+        $data['caseStudiesSettings'] = 'active';
+        $data['settingsOpend'] = 'menu-open';
+        $data['settingsOpening'] = 'menu-is-opening';
+        $data['item'] = HomeModel::find(7);
+        return view('admin.pages.caseStudies', $data);
+    }
+    public function updatecaseStudies(Request $request){
+        $body = HomeModel::find($request->id);
+        $request['user_id'] = auth()->user()->id;
+        if($body->update($request->all())){
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-success');
+            
+            return redirect()->route('caseStudies-settings');
+        }else{
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-danger');
+            return back();
+        }
+    }
+
+    public function contactUs(){
+        $data['pageTitle'] = 'contact-Us Settings';
+        $data['contactUsSettings'] = 'active';
+        $data['settingsOpend'] = 'menu-open';
+        $data['settingsOpening'] = 'menu-is-opening';
+        $data['item'] = HomeModel::find(8);
+        return view('admin.pages.contactUs', $data);
+    }
+    public function updatecontactUs(Request $request){
+        $body = HomeModel::find($request->id);
+        $request['user_id'] = auth()->user()->id;
+        if($body->update($request->all())){
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-success');
+            
+            return redirect()->route('contactUs-settings');
+        }else{
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-danger');
+            return back();
+        }
+    }
+    
+    public function pilot(){
+        $data['pageTitle'] = 'Pilot Page Settings';
+        $data['pilotSettings'] = 'active';
+        $data['settingsOpend'] = 'menu-open';
+        $data['settingsOpening'] = 'menu-is-opening';
+        $data['item'] = HomeModel::find(14);
+        return view('admin.pages.pilot', $data);
+    }
+    public function updatepilot(Request $request){
+        $body = HomeModel::find($request->id);
+        $request['user_id'] = auth()->user()->id;
+        if($body->update($request->all())){
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-success');
+            
+            return redirect()->route('pilot-settings');
+        }else{
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-danger');
+            return back();
+        }
+    }
+
+    public function strategy(){
+        $data['pageTitle'] = 'Strategy Page Settings';
+        $data['strategySettings'] = 'active';
+        $data['settingsOpend'] = 'menu-open';
+        $data['settingsOpening'] = 'menu-is-opening';
+        $data['item'] = HomeModel::find(10);
+        return view('admin.pages.strategy', $data);
+    }
+    public function updatestrategy(Request $request){
+        $body = HomeModel::find($request->id);
+        $request['user_id'] = auth()->user()->id;
+        if($body->update($request->all())){
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-success');
+            
+            return redirect()->route('strategy-settings');
+        }else{
+            session()->flash('msg', 'Successfully saved the data!');
+            session()->flash('alert-class', 'alert-danger');
+            return back();
+        }
+    }
     public function demo(){
         $data['pageTitle'] = 'Demo Page Settings';
         $data['demoSettings'] = 'active';
         $data['settingsOpend'] = 'menu-open';
         $data['settingsOpening'] = 'menu-is-opening';
-        $data['item'] = HomeModel::find(6);
+        $data['item'] = HomeModel::find(11);
         return view('admin.pages.demo', $data);
     }
     public function updateDemo(Request $request){
@@ -176,7 +290,7 @@ class SettingController extends Controller
         $data['faqsSettings'] = 'active';
         $data['settingsOpend'] = 'menu-open';
         $data['settingsOpening'] = 'menu-is-opening';
-        $data['item'] = HomeModel::find(7);
+        $data['item'] = HomeModel::find(12);
         return view('admin.pages.faqs', $data);
     }
     public function updateFaqs(Request $request){
@@ -199,7 +313,7 @@ class SettingController extends Controller
         $data['partnerSettings'] = 'active';
         $data['settingsOpend'] = 'menu-open';
         $data['settingsOpening'] = 'menu-is-opening';
-        $data['item'] = HomeModel::find(8);
+        $data['item'] = HomeModel::find(13);
         return view('admin.pages.partner', $data);
     }
     public function updatePartner(Request $request){

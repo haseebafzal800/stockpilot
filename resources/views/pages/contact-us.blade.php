@@ -58,23 +58,7 @@
             </form>
         </div>
     </div>
-    <div class="contact-us-strategy mb-5">
-        <div class="container_">
-            <div class="row ">
-                <div class="col-12 col-md-5 px-0">
-                    <div class="contact-us-strategy-img mb-4 mb-md-0">
-                        <img src="images/Artwork.png" alt="images" class="img-fluid">
-                    </div>
-                </div>
-                <div class="contact-us-strategy-data col-12 col-md-7 text-center text-md-start text-holder d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <h2 class="d-md-block mb-5">Can’t find your strategy?</h2>
-                    <p class="mb-3">Although we've come to specialize in eCommerce, B2B SaaS and Legal, we work with clients from a variety of industries.</p>
-                    <p class="mb-5">Have a chat with our Business Development Manager Lindsay to see if we can help..</p>
-                    <a class="btn custom-btn" href="#">Find Time with Lindsay</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {!! $page->body !!}
     <div class="contact-support mb-5 py-5">
         <div class="container">
             <div class="row">

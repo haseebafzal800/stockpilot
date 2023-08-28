@@ -140,14 +140,29 @@ Route::post('/admin/settings/support/update', [SettingController::class, 'update
 Route::get('/admin/settings/blog', [SettingController::class, 'blog'])->name('blog-settings');
 Route::post('/admin/settings/blog/update', [SettingController::class, 'updateBlog'])->name('update-blog-settings');
 
+Route::get('/admin/settings/news', [SettingController::class, 'news'])->name('news-settings');
+Route::post('/admin/settings/news/update', [SettingController::class, 'updateNews'])->name('update-news-settings');
+
+Route::get('/admin/settings/caseStudies', [SettingController::class, 'caseStudies'])->name('caseStudies-settings');
+Route::post('/admin/settings/caseStudies/update', [SettingController::class, 'updatecaseStudies'])->name('update-caseStudies-settings');
+
+Route::get('/admin/settings/contactUs', [SettingController::class, 'contactUs'])->name('contactUs-settings');
+Route::post('/admin/settings/contactUs/update', [SettingController::class, 'updatecontactUs'])->name('update-contactUs-settings');
+
+Route::get('/admin/settings/pilot', [SettingController::class, 'pilot'])->name('pilot-settings');
+Route::post('/admin/settings/pilot/update', [SettingController::class, 'updatepilot'])->name('update-pilot-settings');
+
+Route::get('/admin/settings/strategy', [SettingController::class, 'strategy'])->name('strategy-settings');
+Route::post('/admin/settings/strategy/update', [SettingController::class, 'updatestrategy'])->name('update-strategy-settings');
+
 Route::get('/admin/settings/demo', [SettingController::class, 'demo'])->name('demo-settings');
 Route::post('/admin/settings/demo/update', [SettingController::class, 'updateDemo'])->name('update-demo-settings');
 
 Route::get('/admin/settings/faqs', [SettingController::class, 'faqs'])->name('faqs-settings');
 Route::post('/admin/settings/faqs/update', [SettingController::class, 'updateFaqs'])->name('update-faqs-settings');
 
-Route::get('/admin/settings/partner', [SettingController::class, 'partner'])->name('partner-settings');
-Route::post('/admin/settings/partner/update', [SettingController::class, 'updatePartner'])->name('update-partner-settings');
+Route::get('/admin/settings/partners', [SettingController::class, 'partners'])->name('partners-settings');
+Route::post('/admin/settings/partners/update', [SettingController::class, 'updatePartners'])->name('update-partners-settings');
 
 Route::post('/logout', function () {
     Auth::logout();

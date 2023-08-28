@@ -2,23 +2,7 @@
 @section('content')
 <div class="blog-page" id="blog-page wrapper">
 @include('includes.header')
-<div class="blog-banner mb-5 py-lg-5 position-relative">
-            <div class="container">
-                <div class="row p-5">
-                    <div class="col-12 col-md-6 text-center text-md-start mb-5">
-                        <h1 class="position-relative mb-5 pb-4">Inside knowledge from our experts</h1>
-                        <p>We are a software-as-a-service company that provides an auto-trading platform for common investors.</p>
-                        <a class="btn custom-btn" href="#">See more below</a>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="image-container">
-                            <img src="images/blog-banner-vector.png" alt="vector" class="img-fluid mx-auto d-block"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        {!! $page->body !!}
         <div class="recents-items p-4 py-lg-5" >
             <div class="container">
                 <div class="row">

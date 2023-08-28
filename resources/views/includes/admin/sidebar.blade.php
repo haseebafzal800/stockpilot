@@ -90,31 +90,31 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{@url('/admin/settings/blog')}}" class="nav-link {{$blogSettings??''}}">
+                <a href="{{@url('/admin/settings/news')}}" class="nav-link {{$newsSettings??''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>News</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{@url('/admin/settings/blog')}}" class="nav-link {{$blogSettings??''}}">
+                <a href="{{@url('/admin/settings/caseStudies')}}" class="nav-link {{$caseStudiesSettings??''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Case Studies</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{@url('/admin/settings/blog')}}" class="nav-link {{$blogSettings??''}}">
+                <a href="{{@url('/admin/settings/contactUs')}}" class="nav-link {{$contactUsSettings??''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contact Us</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{@url('/admin/settings/blog')}}" class="nav-link {{$blogSettings??''}}">
+                <a href="{{@url('/admin/settings/pilot')}}" class="nav-link {{$pilotSettings??''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pilot</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{@url('/admin/settings/blog')}}" class="nav-link {{$blogSettings??''}}">
+                <a href="{{@url('/admin/settings/strategy')}}" class="nav-link {{$strategySettings??''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Strategy</p>
                 </a>
@@ -132,7 +132,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{@url('/admin/settings/partner')}}" class="nav-link {{$partnerSettings??''}}">
+                <a href="{{@url('/admin/settings/partners')}}" class="nav-link {{$partnersSettings??''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Partners</p>
                 </a>
