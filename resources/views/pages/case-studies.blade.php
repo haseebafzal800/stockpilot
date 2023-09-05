@@ -4,7 +4,7 @@
 @include('includes.header')
 <div class="case-studies-section">
 
-            {!! $page->body !!}
+{!! str_replace('images/', env('APP_URL').'/images/', $page->body) !!}
             <div class="case-study-name mb-5 px-lg-5">
                 <div class="container">
                     <div class="row d-md-flex align-items-center">

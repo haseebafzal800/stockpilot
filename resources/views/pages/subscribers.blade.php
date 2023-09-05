@@ -2,7 +2,7 @@
 @section('content')
 <div class="subscriber-page" id="subscriber-page wrapper">
     @include('includes.header')
-    {!! $page->body !!}
+    {!! str_replace('images/', env('APP_URL').'/images/', $page->body) !!}
     @include('includes.testimonials')
     @include('includes.newsletter')
     @include('includes.footer')

@@ -3,7 +3,7 @@
     <div id="wrapper demo-page" class="demo-page">
     @include('includes.header')
 
-    {!! $page->body !!}
+    {!! str_replace('images/', env('APP_URL').'/images/', $page->body) !!}
 
         <div class="container_">
             <div class="contact-us-form mb-5 col-lg-10 mx-auto d-block px-lg-5">

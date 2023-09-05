@@ -10,40 +10,41 @@
                 <p>Please complete the form below and we will be in touch with you soon.
                 </p>
             </div>
-            <form class="row g-3">
-                <div class="col-md-6 col-12">
+            <form class="row g-3" id="quickForm" method="post" action="{{route('submit-contact-form')}}">
+                <div class="col-md-12 col-12">
                 <label for="inputEmail4" class="form-label d-flex gap-3">Full Name<span class="times">*</span></label>
-                <input type="text" class="form-control" placeholder="Full Name" id="inputEmail4">
+                <input type="text" class="form-control" placeholder="Full Name" name="name" id="inputEmail4">
                 </div>
-                <div class="col-md-6 col-12">
+                @csrf
+                <!-- <div class="col-md-6 col-12">
                 <label for="inputPassword4" class="form-label d-flex gap-3">Select category<span class="times">*</span></label>
                 <input type="text" placeholder="Select" class="form-control" id="inputPassword4">
-                </div>
+                </div> -->
                 <div class="col-md-6 col-12">
                 <label for="inputPassword5" class="form-label d-flex gap-3">Email<span class="times">*</span></label>
-                <input type="email" placeholder="mail@gmail.com" class="form-control" id="inputPassword5">
+                <input type="email" placeholder="mail@gmail.com" class="form-control" name="email" id="inputPassword5">
                 </div>
                 <div class="col-md-6 col-12">
                 <label for="inputPassword6" class="form-label d-flex gap-3">Contact Number<span class="times">*</span></label>
-                <input type="password" placeholder="(+1) 000-000-1234"  class="form-control" id="inputPassword6">
+                <input type="text" placeholder="(+1) 000-000-1234"  class="form-control" name="phone" id="inputPassword6">
                 </div>
                 <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label d-flex gap-3">Description<span class="times">*</span></label>
-                <textarea class="form-control" placeholder="mail@gmail.com" id="exampleFormControlTextarea1" rows="4"></textarea>
+                <textarea class="form-control" placeholder="Message" name="message" id="exampleFormControlTextarea1" rows="4"></textarea>
                 </div>
                 <div class="communication-form mb-3 m-auto text-center">
                 <p class="mb-2">Preferred source of communication:</p>
                     <div class="communication ">
                     <div class="communication-email d-flex justify-content-between align-items-center px-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name=" flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input class="form-check-input" value="email" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Email
                             </label>
                         </div>
                     <div class="communication-email">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name=" flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input class="form-check-input" type="radio" value="call" name="flexRadioDefault" id="flexRadioDefault2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Call
                             </label>
@@ -53,12 +54,13 @@
                 </div>
             </div>
                 <div class="communication-btn">
-                    <a class="btn custom-btn" href="#">Submit</a>
+                    <button type="submit" class="btn custom-btn">Submit</button>
+                    <!-- <a class="btn custom-btn" href="#">Submit</a> -->
                 </div>
             </form>
         </div>
     </div>
-    {!! $page->body !!}
+    {!! str_replace('images/', env('APP_URL').'/images/', $page->body) !!}
     <div class="contact-support mb-5 py-5">
         <div class="container">
             <div class="row">
@@ -165,5 +167,68 @@
     @include('includes.newsletter')
     </div>
     @include('includes.footer')
+    
 </div>
+@include('includes.admin.validationScript')
+<script>
+$(function () {
+  $.validator.setDefaults({
+    submitHandler: function () {
+      $('#quickForm').submit();    
+      // alert( "Form successful submitted!" );
+    }
+  });
+  $('#quickForm').validate({
+    rules: {
+      title: {
+        required: true,
+        minlength: 5
+      },
+      description: {
+        required: true,
+        minlength: 30
+      },
+      summernote: {
+        required: true
+      },
+      tag_id: {
+        required: true
+      },
+      image: {
+            required: true,
+            extension: "jpg|jpeg|png"
+        }
+    },
+    messages: {
+      email: {
+        required: "Please enter a email address",
+        email: "Please enter a valid email address"
+      },
+      image: {
+            required: "Please upload file.",
+            extension: "Please upload file in these format only (jpg, jpeg, png)."
+        },
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      summernote: "Description is required",
+      tag_id: "Please select a tag",
+      terms: "Please accept our terms"
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+
+</script>
 @stop

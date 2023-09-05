@@ -8,6 +8,8 @@ use App\Models\NewsModel;
 use App\Models\TeamModel;
 use App\Models\TestimonialsModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 
 class PagesController extends Controller
 {
@@ -56,6 +58,19 @@ class PagesController extends Controller
         return view("pages/contact-us", $data);
 
     }
+    public function submitContactUs(Request $request){
+        // dd($request);
+        $detail['title'] = 'Contact us Email';
+        $detail['body'] = $request->message;
+        $detail['name'] = $request->name;
+        $detail['email'] = $request->email;
+        $detail['phone'] = $request->phone;
+        $detail['contactMethod'] = $request->flexRadioDefault;
+        // dd(Mail::failures());
+        \Mail::to('asif.zardari.ppp1@gmail.com')->send(new \App\Mail\contactUsEmail($detail));
+        // Mail::to('asif.zardari.ppp1@gmail.com')->send();
+    }
+    
     public function demo(){
         $data['page'] = HomeModel::find(11);
         $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';

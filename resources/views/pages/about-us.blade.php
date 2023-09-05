@@ -4,7 +4,7 @@
         @include('includes.header')
 
         <div class="about-us-section-banner">
-        {!! $page->body !!}
+        {!! str_replace('images/', env('APP_URL').'/images/', $page->body) !!}
             <div class="feature-section leaders-founder-main mb-5 py-lg-5">
                 <div class="container">
                     <div class="row">
@@ -43,7 +43,8 @@
                                 @foreach($news as $release)
                                 <div class="box mb-3 text-center text-md-start">
                                     <div class="icon mb-3">
-                                        <img src="{{$release->getFirstMediaUrl('images', 'thumb')}}" class="mx-auto d-block img-fluid">
+                                        <img src="{{$release->getFirstMediaUrl('images', 'thumb')}}" class="mx-auto d-block img-fluid" alt="{{asset($release->getFirstMediaUrl('images', 'thumb'))}}">
+                                        
                                     </div>
                                     <p>{{$release->title}}</p>
                                 </div>

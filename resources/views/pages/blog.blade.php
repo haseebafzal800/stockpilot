@@ -2,7 +2,7 @@
 @section('content')
 <div class="blog-page" id="blog-page wrapper">
 @include('includes.header')
-        {!! $page->body !!}
+{!! str_replace('images/', env('APP_URL').'/images/', $page->body) !!}
         <div class="recents-items p-4 py-lg-5" >
             <div class="container">
                 <div class="row">
