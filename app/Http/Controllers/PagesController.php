@@ -116,7 +116,6 @@ class PagesController extends Controller
         $data['mataTags'] = $data['page']->mataTags;
         $data['testimonials'] = TestimonialsModel::get();
         return view("pages/strategy", $data);
-
     }
     public function caseStudies(){
         $data['page'] = HomeModel::find(7);
@@ -126,7 +125,6 @@ class PagesController extends Controller
         $data['mataTags'] = $data['page']->mataTags;
         $data['testimonials'] = TestimonialsModel::get();
         return view("pages/case-studies", $data);
-
     }
     
 }
