@@ -33,6 +33,8 @@ Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/about-us', [PagesController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/blogs', [PagesController::class, 'blogs'])->name('blogs');
 Route::get('/contact-us', [PagesController::class, 'contactUs'])->name('contactUs');
+Route::post('/submit-contact', [PagesController::class, 'submitContactUs'])->name('submit-contact-form');
+
 Route::get('/demo', [PagesController::class, 'demo'])->name('demo');
 Route::get('/faqs', [PagesController::class, 'faqs'])->name('faqs');
 Route::get('/pilot', [PagesController::class, 'pilot'])->name('pilot');

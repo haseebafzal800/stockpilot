@@ -379,7 +379,8 @@
 				</div>
 			</div>
 			</div>
-			{!! $page->body !!}
+			
+			{!! str_replace('images/', env('APP_URL').'/images/', $page->body) !!}
 			
         
 			@include('includes.testimonials')
