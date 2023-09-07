@@ -16,10 +16,31 @@
                     <li><a href="{{url('/blogs')}}">Blog</a></li>
                     <li><a href="{{url('/contact-us')}}">Support</a></li>
                 </ul>
+                <div class="d-block d-lg-none">
+                     @guest
+                    <a class="btn custom-btn" href="{{route('login')}}">Login</a>
+                    @else
+                    <div class="d-flex flex-column justify-content-start gap-2">
+                        <div>
+                            <a class="btn custom-btn" href="{{route('login')}}">{{ Auth::user()->name }}</a>
+                        </div>
+                        <div>
+                            <a class="btn custom-btn" onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+        
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+                    @endguest
+                </div>
             </nav>
-            <div class="mobile-icon d-lg-none">
-                <a href="#"><img src="images/header-icon.png"></a>
-            </div>
+            <!--<div class="mobile-icon d-lg-none">-->
+            <!--    <a href="#"><img src="images/header-icon.png"></a>-->
+            <!--</div>-->
             <div class="header-right d-none d-lg-block">
                 <div class="d-flex align-items-center">
                     <!-- <div class="dropdown">
