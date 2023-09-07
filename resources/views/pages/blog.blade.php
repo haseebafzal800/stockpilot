@@ -55,62 +55,83 @@
                         </h2>
                     </div>
                     <div class="col-12 d-none d-lg-block mb-5">
-                        <div class="card card1 d-flex justify-content-between p-4">
-                            <div class="card-text">
-                                <span>Featured Post</span>
-                                <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
+                        <!--card1-->
+                        <div class="card border-0">
+                            <div class="card-image-portion position-relative" style="min-height: 373px;">
+                                <img src="images/recent-post-blog1.png" alt="image-card" class="d-block m-auto img-fluid w-100 h-100"/>
                             </div>
-                            <div class="text-start text-white">
-                                <a>Learn More
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 mb-5">
-                        <div class="card card1 d-flex justify-content-between p-4">
-                            <div class="card-text">
-                                <span>Featured Post</span>
-                                <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
-                            </div>
-                            <div class="text-start text-white">
-                                <a>Learn More
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                    </svg>
-                                </a>
+                            <div class="card-box-text-container position-absolute top-0 right-0 h-100 w-100 d-flex justify-content-between flex-column p-4">
+                                <div class="card-text">
+                                    <span>Featured Post</span>
+                                    <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
+                                </div>
+                                <div class="text-start text-white">
+                                    <a>Learn More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 mb-5">
-                        <div class="card card1 d-flex justify-content-between p-4">
-                            <div class="card-text">
-                                <span>Featured Post</span>
-                                <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
+                        <div class="card border-0">
+                            <div class="card-image-portion position-relative" style="min-height: 373px;">
+                                <img src="images/recent-post-blog1.png" alt="image-card" class="d-block m-auto img-fluid w-100 h-100" style="min-height: 373px;"/>
                             </div>
-                            <div class="text-start text-white">
-                                <a>Learn More
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                    </svg>
-                                </a>
+                            <div class="card-box-text-container position-absolute top-0 right-0 h-100 w-100 d-flex justify-content-between flex-column p-4">
+                                <div class="card-text">
+                                    <span>Featured Post</span>
+                                    <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
+                                </div>
+                                <div class="text-start text-white">
+                                    <a>Learn More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 mb-5">
-                        <div class="card card1 d-flex justify-content-between p-4">
-                            <div class="card-text">
-                                <span>Featured Post</span>
-                                <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
+                       <div class="card border-0">
+                            <div class="card-image-portion position-relative" style="min-height: 373px;">
+                                <img src="images/recent-post-blog1.png" alt="image-card" class="d-block m-auto img-fluid w-100 h-100" style="min-height: 373px;"/>
                             </div>
-                            <div class="text-start text-white">
-                                <a>Learn More
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                    </svg>
-                                </a>
+                            <div class="card-box-text-container position-absolute top-0 right-0 h-100 w-100 d-flex justify-content-between flex-column p-4">
+                                <div class="card-text">
+                                    <span>Featured Post</span>
+                                    <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
+                                </div>
+                                <div class="text-start text-white">
+                                    <a>Learn More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card border-0">
+                            <div class="card-image-portion position-relative" style="min-height: 373px;">
+                                <img src="images/recent-post-blog1.png" alt="image-card" class="d-block m-auto img-fluid w-100 h-100" style="min-height: 373px;"/>
+                            </div>
+                            <div class="card-box-text-container position-absolute top-0 right-0 h-100 w-100 d-flex justify-content-between flex-column p-4">
+                                <div class="card-text">
+                                    <span>Featured Post</span>
+                                    <p class="pt-4">Google Data Studio: <br> Everything You Need to <br>Know</p>
+                                </div>
+                                <div class="text-start text-white">
+                                    <a>Learn More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

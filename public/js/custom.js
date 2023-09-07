@@ -26,22 +26,35 @@ $('.columns-block').slick({
   asNavFor: '.dashboard-slider',
 });
 
-$('.feature-slider').slick({
-  centerMode: true,
+// $('.feature-slider').slick({
+//   centerMode: true,
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   centerPadding: '10px',
+//   dots: true,
+//   arrows: false,
+//   focusOnSelect: true,
+//   autoplay: false,
+//   mobileFirst: true,
+//   responsive: [{
+//     breakpoint: 991.98,
+//     settings: "unslick",
+//   }]
+// });
+
+$('.feature-slider-testing').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
-  centerPadding: '10px',
   dots: true,
   arrows: false,
   focusOnSelect: true,
-  autoplay: false,
   mobileFirst: true,
   responsive: [{
     breakpoint: 991.98,
     settings: "unslick",
   }]
 });
-
+		
 
 $('.read-more-case-study').slick({
   centerMode: true,
