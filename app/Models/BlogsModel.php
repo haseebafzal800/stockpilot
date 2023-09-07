@@ -13,7 +13,7 @@ class BlogsModel extends Model implements HasMedia
     use HasFactory, SoftDeletes, InteractsWithMedia;
     protected $softDelete = true;
     protected $table = 'blogs';
-    protected $fillable = ['title', 'tag_id', 'slug', 'description', 'post', 'status', 'mataTitle', 'mataDescription', 'mataTags', 'user_id'];
+    protected $fillable = ['title', 'tag_id', 'slug', 'description', 'post', 'is_featured', 'in_topbar', 'status', 'mataTitle', 'mataDescription', 'mataTags', 'user_id'];
     public function tags()
     {
         return $this->belongsTo(TagsModel::class);

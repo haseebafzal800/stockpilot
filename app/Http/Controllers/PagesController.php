@@ -46,6 +46,8 @@ class PagesController extends Controller
         $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
         $data['mataDescription'] = $data['page']->mataDescription;
         $data['mataTags'] = $data['page']->mataTags;
+        $data['topBar'] = BlogsModel::where('in_topbar','on')->limit(3)->get();
+        $data['recents'] = BlogsModel::limit(4)->orderBy('id', 'DESC')->limit(4)->get();
         $data['blogs'] = BlogsModel::get();
         $data['testimonials'] = TestimonialsModel::get();
         return view("pages/blog", $data);

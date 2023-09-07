@@ -71,6 +71,7 @@ class BlogController extends Controller
         // dd($request->all());
         $request['slug'] = Str::slug($request->title);
         $request['user_id'] = auth()->user()->id;
+        var_dump($request->all()); die;
         $post = BlogsModel::create($request->all());
         if($post){
             if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -110,6 +111,7 @@ class BlogController extends Controller
         $request['slug'] = Str::slug($request->title);
         $request['user_id'] = auth()->user()->id;
         // dd($request->all());
+        // var_dump($request->all()); die;
         $post->update($request->all());
         if($post){
             if($request->hasFile('image') && $request->file('image')->isValid()){

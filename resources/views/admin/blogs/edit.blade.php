@@ -54,8 +54,15 @@
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-switch">
-                      <input type="checkbox" {{ $item->is_featured?'checked':'' }} name="is_featured" class="custom-control-input" id="customSwitch1">
+                      <input type="checkbox"  name="is_featured" class="custom-control-input" id="customSwitch1" {{ $item->is_featured=='on'?'checked':'' }}>
                       <label class="custom-control-label" for="customSwitch1">Is Featured</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox"  name="in_topbar" class="custom-control-input" id="customSwitch2" {{ $item->in_topbar=='on'?'checked':'' }}>
+                      <label class="custom-control-label" for="customSwitch2">In Top-Bar</label>
                     </div>
                   </div>
                   <div class="form-group">

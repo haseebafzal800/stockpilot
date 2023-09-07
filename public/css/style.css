@@ -1498,8 +1498,12 @@ backdrop-filter: blur(7px);
 }
 .recents-items .item .img-container
 {
-	width: 125px;
+	width: 160px;
+	height: 100px;
 	margin-right: 20px;
+	border-radius: 50%;
+	overflow: hidden;
+	object-fit: cover;
 }
 .recents-items .item .img-container img{
 	width: 100%;

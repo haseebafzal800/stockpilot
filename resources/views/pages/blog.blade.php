@@ -6,43 +6,25 @@
         <div class="recents-items p-4 py-lg-5" >
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-4">
-                        <div class="item d-flex flex-row justify-content-center align-items-center mb-4">
-                            <div class="img-container">
-                                <img src="images/blog-item1.png" alt="items" class="img-fluid mx-auto d-block"/>
+                    @if($topBar)
+                        @foreach($topBar as $tb)
+                            <div class="col-12 col-lg-4">
+                                <div class="item d-flex flex-row justify-content-center align-items-center mb-4">
+                                    <div class="img-container">
+                                        <img src="{{$tb->getFirstMediaUrl('images', 'thumb')}}" alt="items" class="img-fluid mx-auto d-block"/>
+                                    </div>
+                                    <div class="item-data">
+                                        <h3>{{makeTitle($tb->title)}}</h3>
+                                        <span>{{date('d M, Y', strtotime($tb->created_at))}}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="item-data">
-                                <h3>Words of industry wisdom, from our</h3>
-                                <span>28 September, 2022</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="item d-flex flex-row justify-content-center align-items-center mb-4">
-                            <div class="img-container">
-                                <img src="images/blog-item2.png" alt="items" class="img-fluid mx-auto d-block"/>
-                            </div>
-                            <div class="item-data">
-                                <h3>Words of industry wisdom, from our </h3>
-                                <span>28 September, 2022</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="item d-flex flex-row justify-content-center align-items-center mb-4">
-                            <div class="img-container">
-                                <img src="images/blog-item3.png" alt="items" class="img-fluid mx-auto d-block"/>
-                            </div>
-                            <div class="item-data">
-                                <h3>Words of industry wisdom, from our</h3>
-                                <span>28 September, 2022</span>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
+                    
                 </div>
             </div>
         </div>
-
         <div class="recent-post py-lg-5">
             <div class="container">
                 <div class="row">
