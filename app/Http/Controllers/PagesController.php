@@ -85,7 +85,7 @@ class PagesController extends Controller
     public function faqs(){
         $data['pageTitle'] = 'FAQs | Stock Pilot';
         $data['testimonials'] = TestimonialsModel::get();
-        return view("pages/faq", $data);
+        return view("pages/faq2", $data);
 
     }
     public function pilot(){

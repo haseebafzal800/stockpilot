@@ -48,7 +48,7 @@
 					<div class="text-center mb-4 overflow-hidden">
 						<span class="sub-title text-uppercase d-none d-md-block mb-2">Stockie Operation Across the world</span>
 						<h2>Who we are? pilot subscriber story</h2>
-						<p>Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy.</p>
+						<p class="subscriber-section-heading-p">Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy.</p>
 					</div>
 					<div class="row columns-holder">
 						<div class="box mb-3 col-12 col-lg-4">
