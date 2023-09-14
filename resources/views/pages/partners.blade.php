@@ -49,7 +49,7 @@
                                             <div class="partners-img">
                                                 <img src="images/logo__tradovate.png" alt="" class="img-fluid ">
                                             </div>
-                                            <div class="case-details p-4">                                      
+                                            <div class="case-details m-4 pt-3 border-top">                                      
                                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
                                             </div>
                                         </div>
@@ -57,7 +57,7 @@
                                             <div class="partners-img">
                                                 <img src="images/logo__cts.png" alt="" class="img-fluid ">
                                             </div>
-                                            <div class="case-details p-md-4 p-3">                                      
+                                            <div class="case-details m-4 pt-3 border-top">                                      
                                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@
                                             <div class="partners-img">
                                                 <img src="images/logo__amp.png" alt="" class="img-fluid ">
                                             </div>
-                                            <div class="case-details p-4">                                      
+                                            <div class="case-details m-4 pt-3 border-top">                                      
                                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
                                             </div>
                                         </div>
@@ -73,7 +73,7 @@
                                             <div class="partners-img">
                                                 <img src="images/tickmill_logo.png" alt="" class="img-fluid ">
                                             </div>
-                                            <div class="case-details p-4">                                      
+                                            <div class="case-details m-4 pt-3 border-top">                                      
                                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
                                             </div>
                                         </div>
@@ -81,7 +81,7 @@
                                             <div class="partners-img">
                                                 <img src="images/levelx_logo.png" alt="" class="img-fluid ">
                                             </div>
-                                            <div class="case-details p-md-4 p-3">                                      
+                                            <div class="case-details m-4 pt-3 border-top">                                      
                                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
                                             </div>
                                         </div>
@@ -89,7 +89,7 @@
                                             <div class="partners-img">
                                                 <img src="images/logo__tradovate.png" alt="" class="img-fluid ">
                                             </div>
-                                            <div class="case-details p-4">                                      
+                                            <div class="case-details m-4 pt-3 border-top">                                      
                                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@
                                                 <td>-</td>
                                                 <td><img src="images/table-check.png" alt="check"/></td>
                                                 <td>-</td>
-                                                <td><p>Open Account</p></td>
+                                                <td><p>Open <br> Account</p></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><img src="images/table-vector2.png" alt="vector"/></th>
@@ -124,7 +124,7 @@
                                                 <td>-</td>
                                                 <td>-</td>
                                                 <td>-</td>
-                                                <td><p>Open Account</p></td>
+                                                <td><p>Open <br> Account</p></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><img src="images/table-vector3.png" alt="vector"/></th>
@@ -132,7 +132,7 @@
                                                 <td>-</td>
                                                 <td>-</td>
                                                 <td>-</td>
-                                                <td><p>Open Account</p></td>
+                                                <td><p>Open <br> Account</p></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><img src="images/table-ventor4.png" alt="vector"/></th>
@@ -140,7 +140,7 @@
                                                 <td>-</td>
                                                 <td>-</td>
                                                 <td>-</td>
-                                                <td><p>Open Account</p></td>
+                                                <td><p>Open <br> Account</p></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><img src="images/table-vector5.png" alt="vector"/></th>
@@ -148,7 +148,7 @@
                                                 <td>-</td>
                                                 <td><img src="images/table-check.png" alt="check"/></td>
                                                 <td>-</td>
-                                                <td><p>Open Account</p></td>
+                                                <td><p>Open <br> Account</p></td>
                                             </tr>
                                         </tbody>
                                     </table>
