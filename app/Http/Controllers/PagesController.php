@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogsModel;
+use App\Models\FaqHeadsModel;
 use App\Models\HomeModel;
 use App\Models\NewsModel;
 use App\Models\TeamModel;
@@ -83,8 +84,17 @@ class PagesController extends Controller
 
     }
     public function faqs(){
-        $data['pageTitle'] = 'FAQs | Stock Pilot';
+        $data['page'] = HomeModel::find(11);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
         $data['testimonials'] = TestimonialsModel::get();
+        $faq_heads = FaqHeadsModel::whereNull('parent_id')->get();
+        for($f=0; $f < count($faq_heads); $f++){
+            $d[$faq_heads[$f]->title] = FaqHeadsModel::where('parent_id', $faq_heads[$f]->id)->get();
+            $data['faqs'] = $d;
+        }
+    //    echo"<pre>"; print_r($data); die;
         return view("pages/faq2", $data);
 
     }
