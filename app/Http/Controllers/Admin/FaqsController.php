@@ -9,7 +9,7 @@ use App\Http\Requests\FaqRequest;
 use App\Models\FaqHeadsModel;
 use App\Models\FaqsModel;
 use App\Models\TagsModel;
-use DataTables;
+use Yajra\DataTables\DataTables;
 use DB;
 use Illuminate\Support\Str;
 
@@ -44,7 +44,7 @@ class FaqsController extends Controller
             ->get();
             // $data = TagsModel::select('id','tag','status')->get();
             return Datatables::of($data)->addIndexColumn()
-                
+
                 ->addColumn('heads', function($row){
                     $heads = $row->head.' >> '.$row->sub_head;
                     return $heads;
@@ -62,7 +62,7 @@ class FaqsController extends Controller
         $data['parents'] = FaqHeadsModel::where('parent_id', null)->get();
         $data['pageTitle'] = 'FAQs';
         $data['faqsListActive'] = 'active';
-        $data['faqsOpening'] = 'menu-is-opening';  
+        $data['faqsOpening'] = 'menu-is-opening';
         $data['faqsOpend'] = 'menu-open';
         return view('admin.faqs.index', $data);
     }
@@ -108,7 +108,7 @@ class FaqsController extends Controller
         $data['options'] = $op;
         return response()->json($data);
     }
-    
+
     public function destroy($id)
     {
         if(FaqsModel::find($id)->delete()){
@@ -130,7 +130,7 @@ class FaqsController extends Controller
             ->where('h1.deleted_at', null)
             ->get();
             return Datatables::of($data)->addIndexColumn()
-            
+
                 ->addColumn('action', function($row){
                     $url = "/admin/faq-heads/delete/".$row->id;
                     $editUrl = @url('/admin/faq-heads/edit/'.$row->id);
@@ -145,7 +145,7 @@ class FaqsController extends Controller
         $data['parents'] = FaqHeadsModel::where('parent_id', null)->get();
         $data['pageTitle'] = 'FAQ Heads';
         $data['faqHeadListActive'] = 'active';
-        $data['faqsOpening'] = 'menu-is-opening';  
+        $data['faqsOpening'] = 'menu-is-opening';
         $data['faqsOpend'] = 'menu-open';
         return view('admin.faq-heads.index', $data);
     }
@@ -189,7 +189,7 @@ class FaqsController extends Controller
             ->select('h1.*', 'h2.title AS parent')
             ->where('h1.id', $id)
             ->first();
-        
+
         return response()->json($data);
     }
 
@@ -202,10 +202,10 @@ class FaqsController extends Controller
         }
         return response()->json($option);
     }
-    
+
     public function destroyHeads($id)
     {
-        // dd('ddddd'); 
+        // dd('ddddd');
         if(FaqHeadsModel::find($id)->delete()){
             return 'ok';
         }else{
@@ -213,4 +213,3 @@ class FaqsController extends Controller
         }
     }
 }
-

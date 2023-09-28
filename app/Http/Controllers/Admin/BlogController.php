@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
 use App\Models\BlogsModel;
 use App\Models\TagsModel;
-use DataTables;
+use App\Models\User;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
@@ -31,7 +31,7 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        
+
         if ($request->ajax()) {
             $data = BlogsModel::select('id','title','description','status', 'created_at')->get();
             return Datatables::of($data)->addIndexColumn()
@@ -54,31 +54,29 @@ class BlogController extends Controller
             }
         $data['pageTitle'] = 'Blogs';
         $data['blogListActive'] = 'active';
-        $data['blogOpening'] = 'menu-is-opening';  
+        $data['blogOpening'] = 'menu-is-opening';
         $data['blogOpend'] = 'menu-open';
         return view('admin.blogs.index', $data);
     }
     function create(){
         $data['pageTitle'] = 'Create Blog';
         $data['blogCreateActive'] = 'active';
-        $data['blogOpening'] = 'menu-is-opening';  
+        $data['blogOpening'] = 'menu-is-opening';
         $data['blogOpend'] = 'menu-open';
         $data['tags'] = TagsModel::get();
         return view('admin.blogs.form', $data);
     }
     public function store(BlogRequest $request)
     {
-        // dd($request->all());
         $request['slug'] = Str::slug($request->title);
         $request['user_id'] = auth()->user()->id;
-        var_dump($request->all()); die;
         $post = BlogsModel::create($request->all());
         if($post){
             if($request->hasFile('image') && $request->file('image')->isValid()){
                 $post->addMediaFromRequest('image')->toMediaCollection('images');
             }
             session()->flash('success', '<div class="alert alert-success">Successfully saved the data!</div>');
-            
+
             return redirect()->route('blogs');
         }else{
             session()->flash('error', '<div class="alert alert-danger">Successfully saved the data!</div>');
@@ -86,7 +84,7 @@ class BlogController extends Controller
         }
 
     }
-    public function show(string $id): View
+    public function show(string $id)
     {
         return view('user.profile', [
             'user' => User::findOrFail($id)
@@ -96,22 +94,18 @@ class BlogController extends Controller
     {
         $data['pageTitle'] = 'Edit Blog';
         $data['blogListActive'] = 'active';
-        $data['blogOpening'] = 'menu-is-opening';  
+        $data['blogOpening'] = 'menu-is-opening';
         $data['blogOpend'] = 'menu-open';
         $data['item'] = BlogsModel::find($id);
         $data['tags'] = TagsModel::get();
-        
+
         return view('admin.blogs.edit', $data);
     }
-
-    
     public function update(BlogRequest $request)
     {
         $post = BlogsModel::find($request->id);
         $request['slug'] = Str::slug($request->title);
         $request['user_id'] = auth()->user()->id;
-        // dd($request->all());
-        // var_dump($request->all()); die;
         $post->update($request->all());
         if($post){
             if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -120,7 +114,7 @@ class BlogController extends Controller
             }
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('blogs');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -129,15 +123,16 @@ class BlogController extends Controller
         }
     }
 
-    
+
     public function destroy($id)
     {
-        // dd('ddddd'); 
+
         if(BlogsModel::find($id)->delete()){
             return 'ok';
         }else{
             return 'notok';
         }
     }
-}
 
+
+}

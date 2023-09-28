@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PartnersRequest;
 use App\Models\PartnersModel;
+use App\Models\User;
 use DataTables;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-
+use Yajra\DataTables\Contracts\DataTable;
+use Yajra\DataTables\Facades\DataTables as FacadesDataTables;
 
 class PartnersController extends Controller
 {
@@ -30,10 +31,10 @@ class PartnersController extends Controller
      */
     public function index(Request $request)
     {
-        
+
         if ($request->ajax()) {
-            $data = PartnersModel::select('id','company_name', 'created_at')->get();
-            return Datatables::of($data)->addIndexColumn()
+            $data = PartnersModel::select('id','company_name','description', 'created_at')->get();
+            return FacadesDataTables::of($data)->addIndexColumn()
                 ->editColumn('created_at', function ($row) {
                     return Carbon::parse($row->created_at)->format('M d, Y H:i:s');
                 })
@@ -53,18 +54,18 @@ class PartnersController extends Controller
             }
         $data['pageTitle'] = 'Partners';
         $data['partnersListActive'] = 'active';
-        $data['partnersOpening'] = 'menu-is-opening';  
+        $data['partnersOpening'] = 'menu-is-opening';
         $data['partnersOpend'] = 'menu-open';
         return view('admin.partners.index', $data);
     }
     function create(){
         $data['pageTitle'] = 'Add Partner';
         $data['partnersCreateActive'] = 'active';
-        $data['partnersOpening'] = 'menu-is-opening';  
+        $data['partnersOpening'] = 'menu-is-opening';
         $data['partnersOpend'] = 'menu-open';
         return view('admin.partners.form', $data);
     }
-    
+
 
     public function store(PartnersRequest $request)
     {
@@ -81,7 +82,7 @@ class PartnersController extends Controller
             return back();
         }
     }
-    public function show(string $id): View
+    public function show(string $id)
     {
         return view('user.profile', [
             'user' => User::findOrFail($id)
@@ -91,17 +92,17 @@ class PartnersController extends Controller
     {
         $data['pageTitle'] = 'Edit Partner';
         $data['partnersListActive'] = 'active';
-        $data['partnersOpening'] = 'menu-is-opening';  
+        $data['partnersOpening'] = 'menu-is-opening';
         $data['partnersOpend'] = 'menu-open';
         $data['item'] = PartnersModel::find($id);
-        
+
         return view('admin.partners.edit', $data);
     }
 
     public function update(PartnersRequest $request)
     {
         $post = PartnersModel::find($request->id);
-        
+
         $post->update($request->all());
 
         if ($post) {
@@ -129,4 +130,3 @@ class PartnersController extends Controller
         }
     }
 }
-

@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeamRequest;
 use App\Models\TeamModel;
+use App\Models\User;
 use DataTables;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Yajra\DataTables\Facades\DataTables as FacadesDataTables;
 
+// use Yajra\DataTables\Contracts\DataTable;
 
 class TeamController extends Controller
 {
@@ -30,10 +33,10 @@ class TeamController extends Controller
      */
     public function index(Request $request)
     {
-        
+
         if ($request->ajax()) {
             $data = TeamModel::select('id','name','dsignation','description','status', 'created_at')->get();
-            return Datatables::of($data)->addIndexColumn()
+            return FacadesDataTables::of($data)->addIndexColumn()
                 ->editColumn('created_at', function ($row) {
                     return Carbon::parse($row->created_at)->format('M d, Y H:i:s');
                 })
@@ -53,7 +56,7 @@ class TeamController extends Controller
             }
         $data['pageTitle'] = 'Team';
         $data['teamListActive'] = 'active';
-        $data['teamOpening'] = 'menu-is-opening';  
+        $data['teamOpening'] = 'menu-is-opening';
         $data['teamOpend'] = 'menu-open';
         // dd($data);
         return view('admin.team.index', $data);
@@ -61,7 +64,7 @@ class TeamController extends Controller
     function create(){
         $data['pageTitle'] = 'Create Team Member';
         $data['teamCreateActive'] = 'active';
-        $data['teamOpening'] = 'menu-is-opening';  
+        $data['teamOpening'] = 'menu-is-opening';
         $data['teamOpend'] = 'menu-open';
         return view('admin.team.form', $data);
     }
@@ -75,7 +78,7 @@ class TeamController extends Controller
                 $post->addMediaFromRequest('image')->toMediaCollection('images');
             }
             session()->flash('success', '<div class="alert alert-success">Successfully saved the data!</div>');
-            
+
             return redirect()->route('team');
         }else{
             session()->flash('error', '<div class="alert alert-danger">Successfully saved the data!</div>');
@@ -83,7 +86,7 @@ class TeamController extends Controller
         }
 
     }
-    public function show(string $id): View
+    public function show(string $id)
     {
         return view('user.profile', [
             'user' => User::findOrFail($id)
@@ -93,15 +96,15 @@ class TeamController extends Controller
     {
         $data['pageTitle'] = 'Edit team member';
         $data['teamListActive'] = 'active';
-        $data['teamOpening'] = 'menu-is-opening';  
+        $data['teamOpening'] = 'menu-is-opening';
         $data['teamOpend'] = 'menu-open';
         $data['item'] = TeamModel::find($id);
         // $data['tags'] = TagsModel::get();
-        
+
         return view('admin.team.edit', $data);
     }
 
-    
+
     public function update(TeamRequest $request)
     {
         $post = TeamModel::find($request->id);
@@ -116,7 +119,7 @@ class TeamController extends Controller
             }
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('team');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -125,10 +128,10 @@ class TeamController extends Controller
         }
     }
 
-    
+
     public function destroy($id)
     {
-        // dd('ddddd'); 
+        // dd('ddddd');
         if(TeamModel::find($id)->delete()){
             return 'ok';
         }else{
@@ -136,4 +139,3 @@ class TeamController extends Controller
         }
     }
 }
-
