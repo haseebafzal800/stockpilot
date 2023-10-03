@@ -15,7 +15,9 @@
                                             class="img-fluid mx-auto d-block" />
                                     </div>
                                     <div class="item-data">
-                                        <h3>{{ makeTitle($tb->title) }}</h3>
+                                        <a href="/blog-detail/{{ $tb->id }}">
+                                            <h3>{{ makeTitle($tb->title) }}</h3>
+                                        </a>
                                         <span>{{ date('d M, Y', strtotime($tb->created_at)) }}</span>
                                     </div>
                                 </div>
@@ -55,10 +57,12 @@
                                             class="card-box-text-container position-absolute top-0 right-0 h-100 w-100 d-flex justify-content-between flex-column p-4">
                                             <div class="card-text">
                                                 <span>{{ $rt->is_featured ? 'Featured' : 'Not Featured' }}</span>
-                                                <p class="pt-4">{{ makeTitle($rt->description) }}</p>
+                                                <a href="/blog-detail/{{ $rt->id }}">
+                                                    <p class="pt-4">{{ makeTitle($rt->description) }}</p>
+                                                </a>
                                             </div>
                                             <div class="text-start text-white">
-                                                <a>Learn More
+                                                <a href="/blog-detail/{{ $rt->id }}">Learn More
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                                         <path fill-rule="evenodd"
@@ -81,10 +85,12 @@
                                                 class="card-box-text-container position-absolute top-0 right-0 h-100 w-100 d-flex justify-content-between flex-column p-4">
                                                 <div class="card-text">
                                                     <span>{{ $rt->is_featured ? 'Featured' : 'Not Featured' }}</span>
-                                                    <p class="pt-4">{{ makeTitle($rt->title) }}</p>
+                                                    <a href="/blog-detail/{{ $rt->id }}">
+                                                        <p class="pt-4">{{ makeTitle($rt->title) }}</p>
+                                                    </a>
                                                 </div>
                                                 <div class="text-start text-white">
-                                                    <a>Learn More
+                                                    <a href="/blog-detail/{{ $rt->id }}">Learn More
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-chevron-right"
                                                             viewBox="0 0 16 16">
@@ -113,34 +119,6 @@
                         <h2>Directory of Trending Blogs</h2>
                     </div>
                 </div>
-                {{--
-                <div class="row mb-5 d-none d-md-flex">
-                    @if ($blogs)
-                        @foreach ($blogs as $bg)
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card card1 mb-4">
-                                    <img class="card-img" src="{{ $rt->getFirstMediaUrl('images', 'thumb') }}"
-                                        alt="items" />
-                                    <div>
-                                        <div class="card-data d-flex flex-row justify-content-between px-4 py-3">
-                                            <div class="button">
-                                                <a>WEB</a>
-                                            </div>
-                                            <div class="author d-flex flex-row gap-4">
-                                                <p>Lorem 12</p>
-                                                <p>8 min read</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-text px-4">
-                                            <span>{{ $bg->title }}</span>
-                                            <p>{{ $bg->description }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
-                </div> --}}
 
                 <div class="row">
                     <div class="col-12 col-lg-4">
@@ -171,7 +149,8 @@
                                                 </div>
                                             </div>
                                             <div class="card-text px-4">
-                                                <span>{{ makeTitle($bg->title) }}</span>
+                                                <a href="/blog-detail/{{ $bg->id }}">
+                                                    <span>{{ makeTitle($bg->title) }}</span></a>
                                                 <p>{{ makeTitle($bg->description) }}</p>
                                             </div>
                                         </div>
@@ -193,7 +172,8 @@
                                                 </div>
                                             </div>
                                             <div class="card-text px-4">
-                                                <span>{{ makeTitle($bg->title) }}</span>
+                                                <a href="/blog-detail/{{ $bg->id }}">
+                                                    <span>{{ makeTitle($bg->title) }}</span></a>
                                                 <p>{{ makeTitle($bg->description) }}</p>
                                             </div>
                                         </div>
