@@ -1,5 +1,23 @@
 @extends('layouts.default')
 @section('content')
+   
+   <style>
+     @media only screen and (max-width: 767.98px){
+           .blog-list-recent-post{
+                width: 100%;
+            }
+       }
+       @media only screen and (min-width: 767.98px){
+           .blog-list-recent-post{
+                width: 45%;
+            }
+       }
+       @media only screen and (min-width: 1023.98px){
+           .blog-list-recent-post{
+                width: 30%;
+            }
+       }
+   </style>
     <div class="blog-page" id="blog-page wrapper">
         @include('includes.header')
         {!! str_replace('images/', env('APP_URL') . '/images/', $page->body) !!}
@@ -43,13 +61,13 @@
                             </svg>
                         </h2>
                     </div>
-                    <div class="col-12 d-none d-lg-flex flex-wrap gap-5 mb-5">
+                    <div class="col-12  d-flex flex-wrap gap-3 mb-5">
                         @if ($features)
                             <?php $csc = 1; ?>
                             @foreach ($features as $rt)
                                 @if ($csc == 1)
                                     <div class="card border-0 w-100">
-                                        <div class="card-image-portion position-relative" style="min-height: 373px;">
+                                        <div class="card-image-portion position-relative" style="max-height: 373px; min-height: 370px;">
                                             <img src="{{ $rt->getFirstMediaUrl('images', 'thumb') }}" alt="items"
                                                 class="d-block m-auto img-fluid w-100 h-100" />
                                         </div>
@@ -73,10 +91,11 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="Blog-list py-lg-5 py-4" style="width: 30%">
+                                
+                                    <div class="Blog-list blog-list-recent-post py-lg-5 py-4" >
 
                                         <div class="card border-0">
-                                            <div class="card-image-portion position-relative" style="min-height: 373px;">
+                                            <div class="card-image-portion position-relative" style="max-height: 373px; min-height: 370px;">
                                                 <img src="{{ $rt->getFirstMediaUrl('images', 'thumb') }}" alt="items"
                                                     class="d-block m-auto img-fluid w-100 h-100"
                                                     style="min-height: 373px;" />
@@ -157,14 +176,16 @@
                                     </div>
                                 </div>
                             @else
-                                <div class="col-12 col-md-6 col-lg-4">
+                                <div class="col-12 col-md-6 col-xl-4">
                                     <div class="card card1 mb-4">
-                                        <img class="card-img" src="{{ $bg->getFirstMediaUrl('images', 'thumb') }}"
-                                            alt="items" />
+                                  
+                                            <img class="card-img w-100" style="max-height: 373px; min-height: 370px;" src="{{ $bg->getFirstMediaUrl('images', 'thumb') }}"
+                                                alt="items" />
+                                
                                         <div>
-                                            <div class="card-data d-flex flex-row justify-content-between px-4 py-3">
-                                                <div class="button">
-                                                    <a>WEB</a>
+                                            <div class="card-data d-flex flex-row justify-content-between align-items-center gap-3 px-4 py-3">
+                                                <div class="">
+                                                    <a style="border: 1px solid #76FAA3; color: #76FAA3; padding: 10px 20px">WEB</a>
                                                 </div>
                                                 <div class="author d-flex flex-row gap-4">
                                                     <p>{{ $bg->mataTitle }}</p>
