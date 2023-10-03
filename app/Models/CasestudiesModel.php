@@ -12,7 +12,7 @@ class CasestudiesModel extends Model implements HasMedia
 {
     use HasFactory, SoftDeletes, InteractsWithMedia;
     protected $softDelete = true;
-    protected $table = 'caseStudies';
+    protected $table = 'casestudies';
     protected $fillable = ['title', 'tag_id', 'slug', 'description', 'post', 'status', 'mataTitle', 'mataDescription', 'mataTags', 'user_id'];
     public function tags()
     {
