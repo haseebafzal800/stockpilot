@@ -32,7 +32,7 @@
                                 <p class="mb-5">{{ $testimonial->body }}</p>
                                 <div class="d-flex justify-content-between">
                                     <div class="text">
-                                        <strong>{{ $testimonial->client_name }}</strong>
+                                        <strong style="font-size: 20px" class="testi-strong-text">{{ $testimonial->client_name }}</strong>
                                         <span>{{ $testimonial->designation }}</span>
                                     </div>
                                     <div class="icon">

@@ -1,40 +1,43 @@
-	
 <header id="header" class="mb-3">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <a class="menu-btn d-lg-none" href="#"><img src="images/menu.png"></a>
-            <div class="logo">
-                <a href="{{url('/')}}"><img src="{{url('images/logo.png')}}" alt="logo" class="img-fluid"></a>
-            </div>
+            @if ($settings)
+                <div class="logo">
+                    <a href="{{ url('/') }}"><img src="{{ $settings->getFirstMediaUrl('images', 'thumb') }}"
+                            alt="items" class="img-fluid"></a>
+                </div>
+            @endif
             <nav id="nav">
                 <a class="menu-btn d-lg-none" href="#"><img src="images/menu.png"></a>
                 <ul class="list-unstyled d-lg-flex m-0 p-0">
-                    <li><a href="{{url('/')}}">Home</a></li>
-                    <li><a href="{{url('/about-us')}}">About</a></li>
-                    <li><a href="{{url('/products')}}">Services</a></li>
-                    <li><a href="{{url('/subscribers')}}">Portfolio</a></li>
-                    <li><a href="{{url('/blogs')}}">Blog</a></li>
-                    <li><a href="{{url('/contact-us')}}">Support</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('/about-us') }}">About</a></li>
+                    <li><a href="{{ url('/products') }}">Services</a></li>
+                    <li><a href="{{ url('/subscribers') }}">Portfolio</a></li>
+                    <li><a href="{{ url('/blogs') }}">Blog</a></li>
+                    <li><a href="{{ url('/contact-us') }}">Support</a></li>
                 </ul>
                 <div class="d-block d-lg-none">
-                     @guest
-                    <a class="btn custom-btn" href="{{route('login')}}">Login</a>
+                    @guest
+                        <a class="btn custom-btn" href="{{ route('login') }}">Login</a>
                     @else
-                    <div class="d-flex flex-column justify-content-start gap-2">
-                        <div>
-                            <a class="btn custom-btn" href="{{route('login')}}">{{ Auth::user()->name }}</a>
-                        </div>
-                        <div>
-                            <a class="btn custom-btn" onclick="event.preventDefault();
+                        <div class="d-flex flex-column justify-content-start gap-2">
+                            <div>
+                                <a class="btn custom-btn" href="{{ route('login') }}">{{ Auth::user()->name }}</a>
+                            </div>
+                            <div>
+                                <a class="btn custom-btn"
+                                    onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-        
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
                         </div>
-                    </div>
                     @endguest
                 </div>
             </nav>
@@ -54,19 +57,20 @@
                         </ul>
                     </div> -->
                     @guest
-                    <a class="btn custom-btn" href="{{route('login')}}">Login</a>
+                        <a class="btn custom-btn" href="{{ route('login') }}">Login</a>
                     @else
-                    <a class="btn custom-btn" href="{{route('login')}}">{{ Auth::user()->name }}</a>
-                    <a class="btn custom-btn" onclick="event.preventDefault();
+                        <a class="btn custom-btn" href="{{ route('login') }}">{{ Auth::user()->name }}</a>
+                        <a class="btn custom-btn"
+                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                            {{ __('Logout') }}
+                        </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     @endguest
-                    
+
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\TestimonialsController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\GenSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ use App\Http\Controllers\Admin\SettingController;
 Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/about-us', [PagesController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/blogs', [PagesController::class, 'blogs'])->name('blogs');
+Route::get('/blog-detail', [PagesController::class, 'blogDetail'])->name('blog-detail');
 Route::get('/contact-us', [PagesController::class, 'contactUs'])->name('contactUs');
 Route::post('/submit-contact', [PagesController::class, 'submitContactUs'])->name('submit-contact-form');
 
@@ -123,6 +125,12 @@ Route::get('/admin/partner/delete/{id}', [PartnersController::class, 'destroy'])
 Route::get('/admin/partner/edit/{id}', [PartnersController::class, 'edit'])->name('edit-partner');
 Route::post('/admin/partner/update', [PartnersController::class, 'update'])->name('update-partner');
 
+// General settings
+Route::get('/admin/general-settings', [SettingController::class, 'generalSettings']);
+Route::get('/admin/generalsetting', [SettingController::class, 'updateaddress'])->name('general-setting');
+Route::get('/admin/generalsetting/update', [SettingController::class, 'updateGeneralSetting'])->name('settings-update');
+
+
 // Pages
 Route::get('/admin/settings/home', [SettingController::class, 'home'])->name('home-settings');
 Route::post('/admin/settings/home/update', [SettingController::class, 'updateHome'])->name('update-home-settings');
@@ -166,19 +174,12 @@ Route::post('/admin/settings/faqs/update', [SettingController::class, 'updateFaq
 Route::get('/admin/settings/partners', [SettingController::class, 'partners'])->name('partners-settings');
 Route::post('/admin/settings/partners/update', [SettingController::class, 'updatePartners'])->name('update-partners-settings');
 
+
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/admin/dashboard'); // Redirect to the desired page after logout.
 })->name('logout');
 // Route::get('/home', [PagesController::class, 'index'])->name('index');
-
-
-
-
-
-
-
-
 
 Route::fallback(function () {
     return view('errors.404');

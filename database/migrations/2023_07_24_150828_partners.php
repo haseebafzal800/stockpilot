@@ -16,11 +16,12 @@ class Partners extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
             $table->string('company_name', 255);
+            $table->text('description');
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
             $table->timestamps();
             $table->softDeletes();
         });
-        
+
     }
 
     /**

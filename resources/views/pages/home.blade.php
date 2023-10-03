@@ -1,5 +1,27 @@
 @extends('layouts.default')
 @section('content')
+<style>
+    @media only screen and (max-width: 767.98px){
+        .subscriber-section h2,
+	    .how-it-works h2{
+	        font-size: 40px;
+            width: 80%;
+            margin: 0 auto;
+            line-height: 50px;
+	    }
+	    .dashboard-section h2 ,
+	    .feature-section h2{
+	        font-size: 40px;
+	    }
+    }
+    @media only screen and (min-width: 767.98px){
+        .banner h1{
+            font-size: 64px;
+            line-height: 76px;
+            width: 105%;
+        }
+    }
+</style>
 <div id="wrapper index-page" class="index-page">
 		<div class="w1">
         @include('includes.header')
@@ -360,6 +382,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="how-it-works">
 				<div class="container">
 					<h2 class="d-lg-none text-center">See How It Works</h2>

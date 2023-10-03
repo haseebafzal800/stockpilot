@@ -18,6 +18,9 @@ class Settings extends Migration
             $table->string('site_title', 255);
             $table->string('phone', 20);
             $table->string('email', 255);
+            $table->text('address');
+            $table->text('country');
+            $table->text('map');
             $table->string('fb_link', 255);
             $table->string('tw_link', 255);
             $table->string('messenger_link', 255);

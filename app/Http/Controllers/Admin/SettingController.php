@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
 use App\Models\HomeModel;
+use App\Models\SettingModel;
 use Illuminate\Http\Request;
+
+
+
+
 
 class SettingController extends Controller
 {
@@ -22,7 +26,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('home-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -45,7 +49,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('aboutus-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -69,7 +73,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('services-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -91,7 +95,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('portfolio-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -115,7 +119,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('support-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -139,7 +143,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('blog-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -162,7 +166,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('news-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -185,7 +189,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('caseStudies-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -208,7 +212,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('contactUs-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -216,7 +220,7 @@ class SettingController extends Controller
             return back();
         }
     }
-    
+
     public function pilot(){
         $data['pageTitle'] = 'Pilot Page Settings';
         $data['pilotSettings'] = 'active';
@@ -231,7 +235,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('pilot-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -254,7 +258,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('strategy-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -276,7 +280,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('demo-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -299,7 +303,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('faqs-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -308,7 +312,7 @@ class SettingController extends Controller
         }
     }
 
-    public function partner(){
+    public function partners(){
         $data['pageTitle'] = 'partner Page Settings';
         $data['partnerSettings'] = 'active';
         $data['settingsOpend'] = 'menu-open';
@@ -322,7 +326,7 @@ class SettingController extends Controller
         if($body->update($request->all())){
             session()->flash('msg', 'Successfully saved the data!');
             session()->flash('alert-class', 'alert-success');
-            
+
             return redirect()->route('partner-settings');
         }else{
             session()->flash('msg', 'Successfully saved the data!');
@@ -330,5 +334,47 @@ class SettingController extends Controller
             return back();
         }
     }
+
+    public function generalSettings(){
+        $data['pageTitle'] = 'General Settings';
+        $data['GeneralSettings'] = 'active';
+        $data['settingsOpend'] = 'menu-open';
+        $data['settingsOpening'] = 'menu-is-opening';
+        $data['item'] = SettingModel::where('id', 1)->first();
+        return view('admin.general-setting.index', $data);
+    }
+
+    public function  updateGeneralSetting(Request $request)
+    {
+        $request->validate([
+            'country' => 'required|string',
+            'address' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'required|email',
+        ]);
+
+        $setting = SettingModel::find(1);
+
+        if (!$setting) {
+            return redirect()->back()->with('error', 'Setting not found');
+        }
+        $setting->country = $request->input('country');
+        $setting->address = $request->input('address');
+        $setting->phone = $request->input('phone');
+        $setting->email = $request->input('email');
+        $setting->map = $request->input('map');
+        $settings= $setting->save();
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            if ($setting->hasMedia('images')) {
+                $setting->clearMediaCollection('images');
+            }
+            $setting->addMediaFromRequest('image')->toMediaCollection('images');
+        }
+        session()->flash('success', '<div class="alert alert-success"><center>  Data  Successfully Updated!</div></denter>');
+        return redirect()->route('settings-update');
+    }
+
+
 
 }

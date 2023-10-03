@@ -18,7 +18,7 @@
                 <div class="blog-container">
                     <div class="row mb-5">
                         <div class="col-12 col-md-8 d-flex align-items-center">
-                            <p>
+                            <p style="text-align: justify">
                                 Lorem ipsum dolor sit amet consectetur. Pellentesque vel quis vestibulum fames ac gravida. Et habitant habitasse vestibulum proin metus venenatis. Ac neque aliquam in nunc sapien aliquet. Etiam diam nunc viverra curabitur. Vitae sit tellus fermentum dolor pellentesque non. Enim nullam ut ut feugiat pellentesque nunc scelerisque. Sit bibendum amet tellus neque pharetra integer sit. Nisi in faucibus amet sodales a cursus et velit interdum. Ultrices sit feugiat cras non aenean ipsum. Semper laoreet nibh pharetra nunc enim sociis. Metus dapibus mauris arcu mollis arcu eu sit. Iaculis arcu sed ut a aliquam. Varius morbi ac urna pretium ultricies cursus nec. Eros enim turpis congue feugiat semper ipsum posuere.
                             </p>
                         </div>
@@ -35,14 +35,14 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-8 d-flex align-items-center">
-                            <p>
+                            <p style="text-align: justify">
                                 Lorem ipsum dolor sit amet consectetur. Pellentesque vel quis vestibulum fames ac gravida. Et habitant habitasse vestibulum proin metus venenatis. Ac neque aliquam in nunc sapien aliquet. Etiam diam nunc viverra curabitur. Vitae sit tellus fermentum dolor pellentesque non. Enim nullam ut ut feugiat pellentesque nunc scelerisque. Sit bibendum amet tellus neque pharetra integer sit. Nisi in faucibus amet sodales a cursus et velit interdum. Ultrices sit feugiat cras non aenean ipsum. Semper laoreet nibh pharetra nunc enim sociis. Metus dapibus mauris arcu mollis arcu eu sit. Iaculis arcu sed ut a aliquam. Varius morbi ac urna pretium ultricies cursus nec. Eros enim turpis congue feugiat semper ipsum posuere.
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-8 d-flex align-items-center">
-                            <p>
+                            <p style="text-align: justify">
                                 Lorem ipsum dolor sit amet consectetur. Pellentesque vel quis vestibulum fames ac gravida. Et habitant habitasse vestibulum proin metus venenatis. Ac neque aliquam in nunc sapien aliquet. Etiam diam nunc viverra curabitur. Vitae sit tellus fermentum dolor pellentesque non. Enim nullam ut ut feugiat pellentesque nunc scelerisque. Sit bibendum amet tellus neque pharetra integer sit. Nisi in faucibus amet sodales a cursus et velit interdum. Ultrices sit feugiat cras non aenean ipsum. Semper laoreet nibh pharetra nunc enim sociis. Metus dapibus mauris arcu mollis arcu eu sit. Iaculis arcu sed ut a aliquam. Varius morbi ac urna pretium ultricies cursus nec. Eros enim turpis congue feugiat semper ipsum posuere.
                             </p>
                         </div>
