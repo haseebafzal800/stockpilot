@@ -2878,11 +2878,11 @@ backdrop-filter: blur(7px);
 		line-height: 41px;
 		color: #FFFFFF;
 	}
-	.blog-detail-section .img-container
-	{
-		width: 406.49px;
-		height: 238px;
-	}
+	/*.blog-detail-section .img-container*/
+	/*{*/
+	/*	width: 406.49px;*/
+	/*	height: 238px;*/
+	/*}*/
 	.blog-detail-section .img-container img{
 		width: 100%;
 		height: 100%;
@@ -3186,7 +3186,7 @@ backdrop-filter: blur(7px);
 	}
 	.get-started-slider .card3 {
 		position: absolute;
-		bottom: 0px;
+		bottom: -50px;
 		left: 260px;
 	}
 	.get-started-slider .card4 {
@@ -3900,4 +3900,55 @@ backdrop-filter: blur(7px);
         width: 70px;
     }
 }
-
+.demo-about-us-video{ position: absolute; width: 73%; height: 76%; top: 20px; left: 0; right: 0; margin: 0 auto; }
+@media only screen and (min-width: 424.98px){
+    .demo-about-us-video{ top: 30px; }
+}
+@media only screen and (min-width: 767.98px){
+    .demo-about-us-video{top: 50px; }
+}
+@media only screen and (min-width: 991.98px){
+    .demo-about-us-video{top: 65px; }
+}
+@media only screen and (min-width:1219.98px){
+    .demo-about-us-video{ top: 78px; }
+    .pilot-hedge-fund-paragraph ,
+    .strategy-page-performance-paragraph{
+        width: 65%;
+    }
+    .browse-our-section h3 ,
+    .Subscription-seection-paragraph ,
+    .Memberships-section-paragraph,
+    .notification-system-seection-paragraph ,
+    .social-integrations-section-paragraph ,
+    .strategy-performance-container-paragraph{
+        width: 75%;
+    }
+    .browse-our-section-paragraph p{
+        width: 60%;
+    }
+    .browse-section-data{
+        margin-left: 50px;
+    }
+    .card-body-paragraph{
+        width: 80%;
+        font-family: DM Sans;
+        font-size: 14px;
+    }
+    .strategy-ranked-paragraph{
+        width: 50%;
+    }
+    .browse-our-section-paragraph{
+        width: 50%;
+    }
+    .browse-our-section-heading{
+        width: 75%;
+    }
+}
+.card-body-paragraph{
+    font-family: DM Sans !important;
+    font-size: 14px;
+}
+.how-it-works h2{
+    font-size: 40px;
+}

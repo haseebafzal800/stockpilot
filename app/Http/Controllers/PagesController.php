@@ -63,6 +63,19 @@ class PagesController extends Controller
         $data['settings'] = SettingModel::where('id' , 1)->first();
         return view("pages/blog", $data);
     }
+    public function blogDetail(){
+        $data['page'] = HomeModel::find(5);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['topBar'] = BlogsModel::where('in_topbar','on')->limit(3)->get();
+        $data['features'] = BlogsModel::where('is_featured','on')->orderBy('id', 'DESC')->get();
+        $data['blogs'] = BlogsModel::orderBy('id' , 'DESC')-> get();
+        $data['testimonials'] = TestimonialsModel::get();
+        $data['settings'] = SettingModel::where('id' , 1)->first();
+        return view("pages/blog-detail", $data);
+    }
+    
     public function contactUs(){
         $data['page'] = HomeModel::find(8);
         $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
