@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\SettingModel;
+
 if (!function_exists('getTestomonials')) {
     function getTestomonials()
     {
@@ -34,4 +36,15 @@ function bm_estimated_reading_time($post) {
 
     return $estimated_time;
 
+}
+
+if (!function_exists('getAppSettings')) {
+    function getAppSettings($select=null)
+    {
+        if($select){
+            return SettingModel::select($select)->where('id', 1)->first();
+        }else{
+            return SettingModel::select('*')->where('id', 1)->first();
+        }
+    }
 }

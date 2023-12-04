@@ -2,9 +2,9 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <a class="menu-btn d-lg-none" href="#"><img src="images/menu.png"></a>
-            @if ($settings)
+            @if ($logo)
                 <div class="logo">
-                    <a href="{{ url('/') }}"><img src="{{ $settings->getFirstMediaUrl('images', 'thumb') }}"
+                    <a href="{{ url('/') }}"><img src="{{ $logo }}"
                             alt="items" class="img-fluid"></a>
                 </div>
             @endif
