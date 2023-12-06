@@ -170,6 +170,16 @@ class PagesController extends Controller
         $data['settings'] = SettingModel::where('id' , 1)->first();
         return view("pages/case-studies", $data);
     }
+    public function casestudiesdetail($casestudies_id){
+        $data['page'] = CasestudiesModel::find($casestudies_id);
+        // dd($data);
+        $data['pageTitle'] = $data['page']->mataTitle. ' | Stock Pilot';
+        $data['mataDescription'] = $data['page']->mataDescription;
+        $data['mataTags'] = $data['page']->mataTags;
+        $data['testimonials'] = TestimonialsModel::get();
+        $data['settings'] = SettingModel::where('id' , 1)->first();
+        return view("pages/case-studies-detail", $data);
+    }
 
 
 }

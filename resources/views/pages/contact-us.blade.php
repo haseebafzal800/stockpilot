@@ -169,7 +169,8 @@
                             <div class="schedule text-center d-md-flex justify-content-between align-items-center">
                                 <h2 class="mb-md-0 mb-4">Schedule a meeting with our expert</h2>
                                 <div class="communication-btn">
-                                    <a class="btn custom-btn" href="#">Schedule Meeting</a>
+                                    <a class="btn custom-btn" href="https://www.calendly.com/chuck-sp">Schedule
+                                        Meeting</a>
                                 </div>
                             </div>
                         </div>

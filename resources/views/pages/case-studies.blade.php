@@ -29,7 +29,8 @@
                                             <p class="case-study-mobile"><span class="case-1">1/ </span> CASE STUDY</p>
                                             <p>{{ $cs->description }}</p>
                                             <div class="case-btn">
-                                                <a class="btn custom-btn" href="#">Register now</a>
+                                                <a class="btn custom-btn" href="/case-detail/{{ $cs->id }}">Read
+                                                    Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -70,7 +71,8 @@
                                             <p>{{ $cs->description }}
                                             </p>
                                             <div class="case-btn">
-                                                <a class="btn custom-btn" href="#">Register now</a>
+                                                <a class="btn custom-btn" href="/case-detail/{{ $cs->id }}">Read
+                                                    now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -117,9 +119,10 @@
                                                 <div class="case-details p-4">
                                                     <div
                                                         class="d-flex justify-content-between align-items-center flex-wrap pb-4">
-                                                        <a class="btn case-link mb-2 mb-md-0" href="#">WEB</a>
+                                                        <a class="btn case-link mb-2 mb-md-0"
+                                                            href="/case-detail/{{ $cs2->id }}">WEB</a>
                                                         <div class="case-title">
-                                                            <p class="mb-0"><span class="me-3">Lorem 12</span><span>8
+                                                            <p class="mb-0"><span class="me-3"></span><span>8
                                                                     min
                                                                     read</span></p>
                                                         </div>

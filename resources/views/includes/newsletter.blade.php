@@ -1,4 +1,4 @@
-<div class="newsletter-section">
+<div class="newsletter-section" id="newsletter-section-1">
     <div class="container">
         <div class="text-center">
             <h2 class="d-block d-lg-none">Get More Updates</h2>

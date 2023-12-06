@@ -152,7 +152,7 @@
             </div>
         </div>
 
-        <div class="sign-up-section mb-5 py-5">
+        {{-- <div class="sign-up-section mb-5 py-5">
             <div class="container_ p-md-5">
                 <div class="sign-up-container p-4">
                     <div class="row">
@@ -204,7 +204,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="our-partners-section mb-5 py-5">
             <div class="container">
@@ -234,18 +234,18 @@
                                             class="img-fluid mx-auto d-block" />
                                     </div>
                                 </div>
-                                <div class="card">
+                                {{-- <div class="card">
                                     <div class="card-image-container cutom-img">
                                         <img src="images/pilot-partner-section-vector3.png" alt="vector3"
                                             class="img-fluid mx-auto d-block" />
                                     </div>
-                                </div>
-                                <div class="card">
+                                </div> --}}
+                                {{-- <div class="card">
                                     <div class="card-image-container cutom-img">
                                         <img src="images/pilot-partner-section-vector4.png" alt="vector4"
                                             class="img-fluid mx-auto d-block" />
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="card">
                                     <div class="card-image-container">
                                         <img src="images/pilot-partner-section-vector-5.png" alt="vector5"

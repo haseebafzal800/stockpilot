@@ -34,6 +34,7 @@ Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/about-us', [PagesController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/blogs', [PagesController::class, 'blogs'])->name('blogs');
 Route::get('/blog-detail/{blog_id?}', [PagesController::class, 'blogDetail'])->name('blog-detail');
+Route::get('/case-detail/{casestudies_id?}', [PagesController::class, 'casestudiesdetail'])->name('case-detail');
 Route::get('/contact-us', [PagesController::class, 'contactUs'])->name('contactUs');
 Route::post('/submit-contact', [PagesController::class, 'submitContactUs'])->name('submit-contact-form');
 

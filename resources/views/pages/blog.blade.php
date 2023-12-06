@@ -1,23 +1,25 @@
 @extends('layouts.default')
 @section('content')
-   
-   <style>
-     @media only screen and (max-width: 767.98px){
-           .blog-list-recent-post{
+
+    <style>
+        @media only screen and (max-width: 767.98px) {
+            .blog-list-recent-post {
                 width: 100%;
             }
-       }
-       @media only screen and (min-width: 767.98px){
-           .blog-list-recent-post{
+        }
+
+        @media only screen and (min-width: 767.98px) {
+            .blog-list-recent-post {
                 width: 45%;
             }
-       }
-       @media only screen and (min-width: 1023.98px){
-           .blog-list-recent-post{
+        }
+
+        @media only screen and (min-width: 1023.98px) {
+            .blog-list-recent-post {
                 width: 30%;
             }
-       }
-   </style>
+        }
+    </style>
     <div class="blog-page" id="blog-page wrapper">
         @include('includes.header')
         {!! str_replace('images/', env('APP_URL') . '/images/', $page->body) !!}
@@ -67,7 +69,8 @@
                             @foreach ($features as $rt)
                                 @if ($csc == 1)
                                     <div class="card border-0 w-100">
-                                        <div class="card-image-portion position-relative" style="max-height: 373px; min-height: 370px;">
+                                        <div class="card-image-portion position-relative"
+                                            style="max-height: 373px; min-height: 370px;">
                                             <img src="{{ $rt->getFirstMediaUrl('images', 'thumb') }}" alt="items"
                                                 class="d-block m-auto img-fluid w-100 h-100" />
                                         </div>
@@ -91,11 +94,11 @@
                                         </div>
                                     </div>
                                 @else
-                                
-                                    <div class="Blog-list blog-list-recent-post py-lg-5 py-4" >
+                                    <div class="Blog-list blog-list-recent-post py-lg-5 py-4">
 
                                         <div class="card border-0">
-                                            <div class="card-image-portion position-relative" style="max-height: 373px; min-height: 370px;">
+                                            <div class="card-image-portion position-relative"
+                                                style="max-height: 373px; min-height: 370px;">
                                                 <img src="{{ $rt->getFirstMediaUrl('images', 'thumb') }}" alt="items"
                                                     class="d-block m-auto img-fluid w-100 h-100"
                                                     style="min-height: 373px;" />
@@ -145,8 +148,8 @@
                             <h3 class="mb-4 pt-4">Subscribe to our Weekly Newsletter</h3>
                             <p class="mb-5">The Blog Will give you information The Blog Will give you Blog Will
                                 give </p>
-                            <a class="btn custom-btn mb-4" href="#">See more below</a>
-                            <a class="btn custom-btn mb-4" href="#">See more below</a>
+                            <a class="btn custom-btn mb-4" href="/subscribers#newsletter-section-1">See more below</a>
+                            {{-- <a class="btn custom-btn mb-4" href="#">See more below</a> --}}
                         </div>
                     </div>
                     @if ($blogs)
@@ -178,14 +181,16 @@
                             @else
                                 <div class="col-12 col-md-6 col-xl-4">
                                     <div class="card card1 mb-4">
-                                  
-                                            <img class="card-img w-100" style="max-height: 373px; min-height: 370px;" src="{{ $bg->getFirstMediaUrl('images', 'thumb') }}"
-                                                alt="items" />
-                                
+
+                                        <img class="card-img w-100" style="max-height: 373px; min-height: 370px;"
+                                            src="{{ $bg->getFirstMediaUrl('images', 'thumb') }}" alt="items" />
+
                                         <div>
-                                            <div class="card-data d-flex flex-row justify-content-between align-items-center gap-3 px-4 py-3">
+                                            <div
+                                                class="card-data d-flex flex-row justify-content-between align-items-center gap-3 px-4 py-3">
                                                 <div class="">
-                                                    <a style="border: 1px solid #76FAA3; color: #76FAA3; padding: 10px 20px">WEB</a>
+                                                    <a
+                                                        style="border: 1px solid #76FAA3; color: #76FAA3; padding: 10px 20px">WEB</a>
                                                 </div>
                                                 <div class="author d-flex flex-row gap-4">
                                                     <p>{{ $bg->mataTitle }}</p>
