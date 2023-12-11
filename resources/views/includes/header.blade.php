@@ -52,14 +52,14 @@
 <header id="header" class="mb-3">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
-            <a class="menu-btn d-lg-none" href="#"><img src="images/menu.png"></a>
+            <a class="menu-btn d-lg-none" href="#"><img src="/images/menu.png"></a>
             @if ($logo)
                 <div class="logo">
                     <a href="{{ url('/') }}"><img src="{{ $logo }}" alt="items" class="img-fluid"></a>
                 </div>
             @endif
             <nav id="nav">
-                <a class="menu-btn d-lg-none" href="#"><img src="images/menu.png"></a>
+                <a class="menu-btn d-lg-none" href="#"><img src="/images/menu.png"></a>
                 <ul class="list-unstyled d-lg-flex m-0 p-0">
                     <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="{{ url('/demo') }}">Demo</a></li>

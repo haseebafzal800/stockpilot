@@ -6,7 +6,7 @@
             <p>Join our mailing list to stay in the loop with our newest feature releases, tips and tricks </p>
         </div>
         <form action="#">
-            <input type="text" placeholder="Your Email..." class="form-control mb-3 mb-md-0">
+            <input type="text" placeholder="Your Email..." class="form-control mb-3">
             <button type="submit" class="custom-btn btn btn-block w-100">Subscribe</button>
         </form>
     </div>
